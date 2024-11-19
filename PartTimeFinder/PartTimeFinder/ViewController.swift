@@ -10,9 +10,12 @@ import UIKit
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+            super.viewDidLoad()
+            // Do any additional setup after loading the view.
+            let AddJobScreen  = AddJobsViewController()
+            self.navigationController?.pushViewController(AddJobScreen, animated: true)
+        }
+
 
 
 }

@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A992C872CED484600009C19 /* Add Jobs View Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A992C862CED484600009C19 /* Add Jobs View Controller.swift */; };
+		1A992C892CED486300009C19 /* Add Jobs Progress Indicator Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A992C882CED486300009C19 /* Add Jobs Progress Indicator Manager.swift */; };
+		1A992C8B2CED487600009C19 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A992C8A2CED487600009C19 /* PhotoManager.swift */; };
 		2D5DCA3E2CED42260037CBBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5DCA3D2CED42260037CBBB /* AppDelegate.swift */; };
 		2D5DCA402CED42260037CBBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5DCA3F2CED42260037CBBB /* SceneDelegate.swift */; };
 		2D5DCA422CED42260037CBBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5DCA412CED42260037CBBB /* ViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A992C862CED484600009C19 /* Add Jobs View Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Jobs View Controller.swift"; sourceTree = "<group>"; };
+		1A992C882CED486300009C19 /* Add Jobs Progress Indicator Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Jobs Progress Indicator Manager.swift"; sourceTree = "<group>"; };
+		1A992C8A2CED487600009C19 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		2D5DCA3A2CED42260037CBBB /* PartTimeFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartTimeFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D5DCA3D2CED42260037CBBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D5DCA3F2CED42260037CBBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,6 +31,10 @@
 		2D5DCA492CED422B0037CBBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D5DCA4B2CED422B0037CBBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		1A992C852CED480A00009C19 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2D5DCA372CED42260037CBBB /* Frameworks */ = {
@@ -37,6 +47,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A992C842CED47F100009C19 /* AddJobScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A992C8A2CED487600009C19 /* PhotoManager.swift */,
+				1A992C882CED486300009C19 /* Add Jobs Progress Indicator Manager.swift */,
+				1A992C862CED484600009C19 /* Add Jobs View Controller.swift */,
+				1A992C852CED480A00009C19 /* Views */,
+			);
+			path = AddJobScreen;
+			sourceTree = "<group>";
+		};
 		2D5DCA312CED42260037CBBB = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +77,7 @@
 		2D5DCA3C2CED42260037CBBB /* PartTimeFinder */ = {
 			isa = PBXGroup;
 			children = (
+				1A992C842CED47F100009C19 /* AddJobScreen */,
 				2D5DCA3D2CED42260037CBBB /* AppDelegate.swift */,
 				2D5DCA3F2CED42260037CBBB /* SceneDelegate.swift */,
 				2D5DCA412CED42260037CBBB /* ViewController.swift */,
@@ -81,6 +103,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1A992C852CED480A00009C19 /* Views */,
 			);
 			name = PartTimeFinder;
 			productName = PartTimeFinder;
@@ -138,9 +163,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A992C8B2CED487600009C19 /* PhotoManager.swift in Sources */,
 				2D5DCA422CED42260037CBBB /* ViewController.swift in Sources */,
+				1A992C892CED486300009C19 /* Add Jobs Progress Indicator Manager.swift in Sources */,
 				2D5DCA3E2CED42260037CBBB /* AppDelegate.swift in Sources */,
 				2D5DCA402CED42260037CBBB /* SceneDelegate.swift in Sources */,
+				1A992C872CED484600009C19 /* Add Jobs View Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

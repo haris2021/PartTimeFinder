@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A992C6E2CED25B500009C19 /* AddJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A992C6D2CED25B500009C19 /* AddJobsViewController.swift */; };
+		1A992C702CED295C00009C19 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A992C6F2CED295C00009C19 /* PhotoManager.swift */; };
+		1A992C7A2CED2AC000009C19 /* AddJobsProgressIndicateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A992C792CED2AC000009C19 /* AddJobsProgressIndicateManager.swift */; };
 		2D5DCA192CED1A940037CBBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5DCA182CED1A940037CBBB /* AppDelegate.swift */; };
 		2D5DCA1B2CED1A940037CBBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5DCA1A2CED1A940037CBBB /* SceneDelegate.swift */; };
 		2D5DCA1D2CED1A940037CBBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5DCA1C2CED1A940037CBBB /* ViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A992C6D2CED25B500009C19 /* AddJobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobsViewController.swift; sourceTree = "<group>"; };
+		1A992C6F2CED295C00009C19 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
+		1A992C792CED2AC000009C19 /* AddJobsProgressIndicateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobsProgressIndicateManager.swift; sourceTree = "<group>"; };
 		2D5DCA152CED1A940037CBBB /* PartTimeFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartTimeFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D5DCA182CED1A940037CBBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D5DCA1A2CED1A940037CBBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,6 +31,11 @@
 		2D5DCA242CED1A980037CBBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D5DCA262CED1A980037CBBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		1A992C6A2CED258900009C19 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
+		1A992C722CED29F900009C19 /* Progress Indicator */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Progress Indicator"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2D5DCA122CED1A940037CBBB /* Frameworks */ = {
@@ -37,6 +48,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A992C692CED257A00009C19 /* AddJobScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A992C6A2CED258900009C19 /* Views */,
+				1A992C6D2CED25B500009C19 /* AddJobsViewController.swift */,
+				1A992C6F2CED295C00009C19 /* PhotoManager.swift */,
+				1A992C792CED2AC000009C19 /* AddJobsProgressIndicateManager.swift */,
+			);
+			path = AddJobScreen;
+			sourceTree = "<group>";
+		};
 		2D5DCA0C2CED1A940037CBBB = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +78,8 @@
 		2D5DCA172CED1A940037CBBB /* PartTimeFinder */ = {
 			isa = PBXGroup;
 			children = (
+				1A992C722CED29F900009C19 /* Progress Indicator */,
+				1A992C692CED257A00009C19 /* AddJobScreen */,
 				2D5DCA182CED1A940037CBBB /* AppDelegate.swift */,
 				2D5DCA1A2CED1A940037CBBB /* SceneDelegate.swift */,
 				2D5DCA1C2CED1A940037CBBB /* ViewController.swift */,
@@ -81,6 +105,10 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1A992C6A2CED258900009C19 /* Views */,
+				1A992C722CED29F900009C19 /* Progress Indicator */,
 			);
 			name = PartTimeFinder;
 			productName = PartTimeFinder;
@@ -138,7 +166,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A992C702CED295C00009C19 /* PhotoManager.swift in Sources */,
 				2D5DCA1D2CED1A940037CBBB /* ViewController.swift in Sources */,
+				1A992C6E2CED25B500009C19 /* AddJobsViewController.swift in Sources */,
+				1A992C7A2CED2AC000009C19 /* AddJobsProgressIndicateManager.swift in Sources */,
 				2D5DCA192CED1A940037CBBB /* AppDelegate.swift in Sources */,
 				2D5DCA1B2CED1A940037CBBB /* SceneDelegate.swift in Sources */,
 			);

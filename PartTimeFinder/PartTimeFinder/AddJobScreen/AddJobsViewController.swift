@@ -42,6 +42,21 @@ class AddJobsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+   func setDefaultPhoto() {
+        if let defaultImage = UIImage(named: "NoImage") {
+            self.addJobsView.buttonTakePhoto.setImage(
+                defaultImage.withRenderingMode(.alwaysOriginal),
+                for: .normal
+            )
+            self.pickedImage = defaultImage
+        } else {
+            print("Default photo not found in assets")
+        }
+    }
+    
+    
+    
     @objc func onRegisterTapped() {
         // Creating a new user on Firebase...
         

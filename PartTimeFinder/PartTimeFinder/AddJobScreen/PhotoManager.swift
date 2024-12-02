@@ -12,8 +12,8 @@ extension AddJobsViewController:PHPickerViewControllerDelegate{
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         dismiss(animated: true)
         
-        print(results)
-        
+//        print(results)
+
         let itemprovider = results.map(\.itemProvider)
         
         for item in itemprovider{
@@ -50,6 +50,9 @@ extension AddJobsViewController: UINavigationControllerDelegate, UIImagePickerCo
             self.pickedImage = image
         }else{
             // Do your thing for No image loaded...
+            
         }
     }
 }
+
+

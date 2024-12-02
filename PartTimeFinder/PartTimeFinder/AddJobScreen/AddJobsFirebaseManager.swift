@@ -17,39 +17,140 @@ import FirebaseFirestore
 extension AddJobsViewController{
     
     
-    func uploadJobPhotoToStorage()
-    {
-        var profilePhotoURL:URL?
-        
-        //MARK: Upload the profile photo if there is any...
-        if let image = pickedImage
-        {
-            if let jpegData = image.jpegData(compressionQuality: 80)
-            {
-                let storageRef = storage.reference()
-                let imagesRepo = storageRef.child("imagesJobs")
-                let imageRef = imagesRepo.child("\(NSUUID().uuidString).jpg")
-                
-                let uploadTask = imageRef.putData(jpegData, completion: {(metadata, error) in
-                    if error == nil
-                    {
-                        imageRef.downloadURL(completion: {(url, error) in
-                            if error == nil
-                            {
-                                profilePhotoURL = url
-                                self.addJob(photoURL: profilePhotoURL!)
-                            }
-                        })
-                    }
-                })
-            }
-        }else
-        {
-            addJob(photoURL: profilePhotoURL!)
+//    func uploadJobPhotoToStorage()
+//    {
+//        var profilePhotoURL:URL?
+//        
+//        //MARK: Upload the profile photo if there is any...
+//        if let image = pickedImage
+//        {
+//            if let jpegData = image.jpegData(compressionQuality: 80)
+//            {
+//                let storageRef = storage.reference()
+//                let imagesRepo = storageRef.child("imagesJobs")
+//                let imageRef = imagesRepo.child("\(NSUUID().uuidString).jpg")
+//                
+//                let uploadTask = imageRef.putData(jpegData, completion: {(metadata, error) in
+//                    if error == nil
+//                    {
+//                        imageRef.downloadURL(completion: {(url, error) in
+//                            if error == nil
+//                            {
+//                                profilePhotoURL = url
+//                                self.addJob(photoURL: profilePhotoURL!)
+//                            }
+//                        })
+//                    }
+//                })
+//            }
+//        }else
+//        {
+//            print("hello")
+//            // add alert here to throw when image is not found.
+//            addJob(photoURL: profilePhotoURL!)
+//        }
+//        
+//        
+//    }
+    
+    // chatgpt - code
+    
+//    
+//    func uploadJobPhotoToStorage() {
+//        guard let image = pickedImage else {
+//            print("No image to upload")
+//            setDefaultPhoto();
+//            // Add alert or fallback logic here if no image is available
+//        }
+//        
+//        guard let jpegData = image.jpegData(compressionQuality: 0.8) else {
+//            print("Failed to convert image to JPEG")
+//            return
+//        }
+//        
+//        let storageRef = storage.reference()
+//        let imagesRepo = storageRef.child("imagesJobs")
+//        let imageRef = imagesRepo.child("\(NSUUID().uuidString).jpg")
+//        
+//        let uploadTask = imageRef.putData(jpegData, metadata: nil) { (metadata, error) in
+//            if let error = error {
+//                print("Error uploading image: \(error.localizedDescription)")
+//                return
+//            }
+//            
+//            // Get the download URL
+//            imageRef.downloadURL { (url, error) in
+//                if let error = error {
+//                    print("Error getting download URL: \(error.localizedDescription)")
+//                    return
+//                }
+//                
+//                if let photoURL = url {
+//                    print("Image uploaded successfully. URL: \(photoURL)")
+//                    self.addJob(photoURL: photoURL) // Pass the valid URL to your function
+//                }
+//            }
+//        }
+//        
+//        uploadTask.observe(.progress) { snapshot in
+//            if let progress = snapshot.progress {
+//                print("Upload progress: \(progress.fractionCompleted * 100)%")
+//            }
+//        }
+//    }
+//
+    
+    func uploadJobPhotoToStorage() {
+        // Ensure `pickedImage` is set; if not, set a default photo
+        if pickedImage == nil {
+            setDefaultPhoto()
         }
         
+        // Safely unwrap the image after ensuring a default is set
+        guard let image = pickedImage else {
+            print("Failed to set default image")
+            return // If no image is set even after fallback, terminate here
+        }
         
+        // Convert the image to JPEG data
+        guard let jpegData = image.jpegData(compressionQuality: 0.8) else {
+            print("Failed to convert image to JPEG")
+            return
+        }
+        
+        // Firebase storage upload logic
+        let storageRef = storage.reference()
+        let imagesRepo = storageRef.child("imagesJobs")
+        let imageRef = imagesRepo.child("\(NSUUID().uuidString).jpg")
+        
+        let uploadTask = imageRef.putData(jpegData, metadata: nil) { (metadata, error) in
+            if let error = error {
+                print("Error uploading image: \(error.localizedDescription)")
+                return
+            }
+            
+            // Get the download URL
+            imageRef.downloadURL { (url, error) in
+                if let error = error {
+                    print("Error getting download URL: \(error.localizedDescription)")
+                    return
+                }
+                
+                if let photoURL = url {
+                    print("Image uploaded successfully. URL: \(photoURL)")
+                    self.addJob(photoURL: photoURL) // Proceed with job creation logic
+                }
+            }
+        }
+        
+        // Observe upload progress
+        uploadTask.observe(.progress) { snapshot in
+            if let progress = snapshot.progress {
+                print("Upload progress: \(progress.fractionCompleted * 100)%")
+            }
+        }
     }
+    
     
 //    func addJob(photoURL: URL)
 //    {
@@ -107,6 +208,7 @@ extension AddJobsViewController{
         else {
             // Show alert if any field is empty
             showAlert("Error", "Please fill in all fields")
+            hideActivityIndicator()
             return
         }
         

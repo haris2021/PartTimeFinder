@@ -67,5 +67,25 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    // MARK: - Table View Delegate Method (Handle Row Selection)
+       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           // Deselect the row (optional)
+//           tableView.deselectRow(at: indexPath, animated: true)
+//           
+//           // Get the selected job
+//           let selectedJob = isSearchActive ? filteredJobsList[indexPath.row] : jobsList[indexPath.row]
+//           
+//           // Create an instance of the JobDetailViewController
+           let jobDetailVC = JobDetailsViewController()
+//           
+//           // Pass the selected job data to the detail view controller
+//           jobDetailVC.job = selectedJob
+//           
+//           // Push the detail view controller onto the navigation stack
+           navigationController?.pushViewController(jobDetailVC, animated: true)
+       }
+    
+    
 }
 

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -85,6 +85,10 @@
 		2D5DCA492CED422B0037CBBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D5DCA4B2CED422B0037CBBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		1AE12BA62CFE5D8C00511042 /* MapScreen */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MapScreen; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2D5DCA372CED42260037CBBB /* Frameworks */ = {
@@ -243,6 +247,7 @@
 				1A99D8822CF3D4B7002B783A /* AddJobScreen */,
 				2D1323272CF0C2860017AC3B /* Job Details Screen */,
 				1A99D8912CF3FD74002B783A /* ImageViewUnits.swift */,
+				1AE12BA62CFE5D8C00511042 /* MapScreen */,
 			);
 			path = PartTimeFinder;
 			sourceTree = "<group>";
@@ -261,6 +266,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1AE12BA62CFE5D8C00511042 /* MapScreen */,
 			);
 			name = PartTimeFinder;
 			productName = PartTimeFinder;

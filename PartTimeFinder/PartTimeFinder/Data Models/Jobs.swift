@@ -17,8 +17,9 @@ struct Jobs: Codable{
     var jobName: String
     var jobPosterEmail : String
     var jobPostingDate: String
+    var jobPostingZip: String
     
-    init(jobCompany: String, jobDesc: String,jobImage: String,jobLikescount: String, jobName: String,jobPosterEmail : String,jobPostingDate: String) {
+    init(jobCompany: String, jobDesc: String,jobImage: String,jobLikescount: String, jobName: String,jobPosterEmail : String,jobPostingDate: String, jobPostingZip: String) {
         self.jobCompany = jobCompany
         self.jobDesc = jobDesc
         self.jobImage = jobImage
@@ -26,5 +27,6 @@ struct Jobs: Codable{
         self.jobName = jobName
         self.jobPosterEmail = jobPosterEmail
         self.jobPostingDate = jobPostingDate
+        self.jobPostingZip = jobPostingZip
     }
 }

@@ -204,7 +204,8 @@ extension AddJobsViewController{
             let jobDesc = addJobsView.textViewJobDesc.text, !jobDesc.isEmpty,
             let jobName = addJobsView.textFieldJobName.text, !jobName.isEmpty,
             let jobPosterEmail = addJobsView.textFieldJobPosterEmail.text, !jobPosterEmail.isEmpty,
-            let jobPostingDate = addJobsView.textFieldJobPostingDate.text, !jobPostingDate.isEmpty
+            let jobPostingDate = addJobsView.textFieldJobPostingDate.text, !jobPostingDate.isEmpty,
+            let jobPostingZip = addJobsView.textFieldJobPostingZip.text, !jobPostingZip.isEmpty
         else {
             // Show alert if any field is empty
             showAlert("Error", "Please fill in all fields")
@@ -220,7 +221,9 @@ extension AddJobsViewController{
             jobLikescount: "0",
             jobName: jobName,
             jobPosterEmail: jobPosterEmail,
-            jobPostingDate: jobPostingDate
+            jobPostingDate: jobPostingDate,
+            jobPostingZip: jobPostingZip
+        
         )
         
         // Save the new job to Firestore

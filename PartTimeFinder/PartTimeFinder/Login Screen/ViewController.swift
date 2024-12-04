@@ -12,7 +12,9 @@ import FirebaseAuth
 class ViewController: UIViewController {
     
     let loginScreen = LoginView()
-    
+    var handleAuth: AuthStateDidChangeListenerHandle?
+    var currentUser:FirebaseAuth.User?
+
     override func loadView() {
         view = loginScreen
     }
@@ -22,6 +24,16 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
 
         super.viewWillAppear(animated)
+        
+        handleAuth = Auth.auth().addStateDidChangeListener{ auth, user in
+            if user == nil{
+                self.currentUser = nil
+            }else{
+                //MARK: the user is signed in...
+                self.currentUser = user
+            }
+        }
+        
         loginScreen.textFieldEmail.text = ""
         loginScreen.textFieldPassword.text = ""
     }
@@ -29,16 +41,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-//        let defaults = UserDefaults.standard
-//        let tokenSaved = defaults.object(forKey: "loginToken") as! String?
-                
-//        if let sessionToken = tokenSaved{           // Fetching token from session (if available)
-//            let notesScreen = NotesScreenViewController()
-//            notesScreen.loggedInToken = sessionToken
-//            self.navigationController?.pushViewController(notesScreen, animated: true)
-//        }
-        
+       
         loginScreen.buttonLogin
             .addTarget(self, action: #selector(onButtonLoginTapped), for: .touchUpInside)
         
@@ -72,6 +75,7 @@ class ViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password, completion: {(result, error) in
             if error == nil{
                 let homeScreen = HomeViewController()
+                homeScreen.signedInUserEmail = self.currentUser?.email
                 self.navigationController?.pushViewController(homeScreen, animated: true)
             }else{
                 Utils.throwAlert(on: self, title: "Error", message: "Account doesn't exist")

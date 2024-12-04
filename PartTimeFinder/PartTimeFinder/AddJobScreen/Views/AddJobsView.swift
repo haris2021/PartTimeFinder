@@ -23,6 +23,7 @@ class AddJobsView: UIView {
     var textFieldJobName: UITextField!
     var textFieldJobPosterEmail: UITextField!
     var textFieldJobPostingDate: UITextField!
+    var textFieldJobPostingZip: UITextField!
     
     var labelPhoto: UILabel!
     var buttonTakePhoto: UIButton!
@@ -38,6 +39,7 @@ class AddJobsView: UIView {
         setuptextFieldJobName()
         setuptextFieldJobPosterEmail()
         setuptextFieldJobPostingDate()
+        setuptextFieldJobPostingZip()
         
         setuplabelPhoto()
         setupbuttonTakePhoto()
@@ -129,6 +131,17 @@ class AddJobsView: UIView {
         textFieldJobPostingDate.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldJobPostingDate)
     }
+    
+    func setuptextFieldJobPostingZip()
+    {
+        textFieldJobPostingZip = UITextField()
+        textFieldJobPostingZip.placeholder = "Posting Zip"
+        textFieldJobPostingZip.keyboardType = .default
+        textFieldJobPostingZip.borderStyle = .roundedRect
+        textFieldJobPostingZip.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(textFieldJobPostingZip)
+        
+    }
 
     func initConstraints() {
         NSLayoutConstraint.activate([
@@ -159,8 +172,12 @@ class AddJobsView: UIView {
             textFieldJobPostingDate.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldJobPostingDate.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
+            textFieldJobPostingZip.topAnchor.constraint(equalTo: textFieldJobPostingDate.bottomAnchor, constant: 16),
+            textFieldJobPostingZip.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            textFieldJobPostingZip.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
+            
             // Existing layout for photo and register button
-            buttonTakePhoto.topAnchor.constraint(equalTo: textFieldJobPostingDate.bottomAnchor, constant: 16),
+            buttonTakePhoto.topAnchor.constraint(equalTo: textFieldJobPostingZip.bottomAnchor, constant: 16),
             buttonTakePhoto.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             
             buttonTakePhoto.widthAnchor.constraint(equalToConstant: 100),

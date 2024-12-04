@@ -34,14 +34,12 @@ extension SignUpViewController{
                 Auth.auth().createUser(withEmail: email, password: password, completion: {result, error in
                     if error == nil{
                         self.setNameOfTheUserInFirebaseAuth(name: name)
-                        print("1")
                         guard let registeredEmail = result?.user.email else { return }
                         let collectionUsers = self.database
                             .collection("users")
                         
                         do{
                             let user = User(name: name, email: email, phoneNum: phoneNum)
-                            print("2")
                             try collectionUsers.document(registeredEmail).setData(from: user) { error in
                                 if let error = error {
                                     print("Error adding user to users collection: \(error.localizedDescription)")
@@ -50,7 +48,6 @@ extension SignUpViewController{
                                 }
                             }
                         }catch{
-                            print("3")
                             print(error)
                         }
                     } else {

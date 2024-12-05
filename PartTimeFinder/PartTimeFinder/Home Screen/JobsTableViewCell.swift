@@ -16,7 +16,7 @@ class JobsTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+        
         setupWrapperCellView()
         setupJobImageView()
         setupLabelJobName()
@@ -27,7 +27,7 @@ class JobsTableViewCell: UITableViewCell {
 
     func setupWrapperCellView() {
         wrapperCellView = UIView()
-        wrapperCellView.backgroundColor = .white
+        wrapperCellView.backgroundColor = .clear
         wrapperCellView.layer.cornerRadius = 12.0  // Rounded corners for the card
         wrapperCellView.layer.shadowColor = UIColor.black.cgColor  // Soft shadow effect
         wrapperCellView.layer.shadowOffset = CGSize(width: 0, height: 4) // Soft lift effect
@@ -92,13 +92,10 @@ class JobsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     required init?(coder: NSCoder) {

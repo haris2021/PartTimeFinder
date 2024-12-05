@@ -14,20 +14,20 @@ struct Job: Codable{
     var jobCompany: String
     var jobDesc: String
     var jobImage: String
-    var jobPosterEmail: String
+    var jobPosterLocation: String
     var jobPostingDate: String
     var jobPostingZip: String
     var jobLikedBy: [String]
     var jobDislikedBy: [String]
     
     init(jobName: String, jobCompany: String, jobDesc: String, jobImage: String,
-         jobPosterEmail: String, jobPostingDate: String, jobPostingZip: String, jobLikedBy: [String] = [],
+         jobPosterLocation: String, jobPostingDate: String, jobPostingZip: String, jobLikedBy: [String] = [],
          jobDislikedBy: [String] = []) {
         self.jobName = jobName
         self.jobCompany = jobCompany
         self.jobDesc = jobDesc
         self.jobImage = jobImage
-        self.jobPosterEmail = jobPosterEmail
+        self.jobPosterLocation = jobPosterLocation
         self.jobPostingDate = jobPostingDate
         self.jobPostingZip = jobPostingZip
         self.jobLikedBy = jobLikedBy

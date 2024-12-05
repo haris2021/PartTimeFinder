@@ -19,6 +19,7 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
     var jobID: String?
     let database = Firestore.firestore()
     var currentUser:FirebaseAuth.User?
+    let childProgressView = ProgressSpinnerViewController()
     
     // location
     let locationManager = CLLocationManager()
@@ -74,6 +75,12 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
                         self.jobDetailsView.postingDateLabel.text = job.jobPostingDate
                         self.jobDetailsView.likeCounterLabel.text = "\(job.jobLikedBy.count)"
                         self.jobDetailsView.dislikeCounterLabel.text = "\(job.jobDislikedBy.count)"
+                        
+                        if let imageURL = URL(string: job.jobImage) {
+                        //                            cell.jobImageView.loadRemoteImage(from: imageURL)
+                                                    self.jobDetailsView.jobImageView.loadRemoteImage(from: imageURL)
+
+                                                }
                         
                         if let userEmail = self.currentUser?.email {
                             if job.jobLikedBy.contains(userEmail) {

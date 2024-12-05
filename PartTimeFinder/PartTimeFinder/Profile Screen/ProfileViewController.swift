@@ -26,7 +26,13 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
         title = "Profile Screen"
     
+        fetchProfileDetails()
+        
         profileView.buttonLogout.addTarget(self, action: #selector(onLogoutBarButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func fetchProfileDetails() {
+        
     }
     
     @objc func onLogoutBarButtonTapped(){

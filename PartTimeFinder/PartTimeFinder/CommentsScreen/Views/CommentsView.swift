@@ -18,10 +18,10 @@ class CommentsView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .white
+//        self.backgroundColor = .white
+        setupBackground()
         
         setupTableViewContacts()
-        
         setupBottomAddView()
         setupTextFieldAddNote()
         setupButtonAdd()

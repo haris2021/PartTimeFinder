@@ -29,6 +29,7 @@ class AddJobsViewController: UIViewController {
         title = "Post Job"
         
         addJobsView.buttonTakePhoto.menu = getMenuImagePicker()
+        Utils.addTapGestureToDismissKeyboard(on:self)
     }
     
     

@@ -47,6 +47,8 @@ class ViewController: UIViewController {
         
         loginScreen.buttonSignup
             .addTarget(self, action: #selector(onButtonSignupTapped), for: .touchUpInside)
+        
+        Utils.addTapGestureToDismissKeyboard(on: self)
     }
     
     @objc func onButtonLoginTapped() {

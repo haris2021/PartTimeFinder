@@ -12,11 +12,13 @@ class HomeView: UIView, UISearchBarDelegate {
     var tableViewJobs: UITableView!
     
     var floatingButtonAddJobs: UIButton!
+    
     var searchBar: UISearchBar!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+//        backgroundColor = .white
+        setupBackground()
         
         setupTableViewJobs()
         setupFloatingButtonAddJobs()
@@ -35,6 +37,7 @@ class HomeView: UIView, UISearchBarDelegate {
         tableViewJobs.rowHeight = UITableView.automaticDimension
         tableViewJobs.estimatedRowHeight = 80
         
+        tableViewJobs.backgroundColor = .clear
         self.addSubview(tableViewJobs)
     }
     

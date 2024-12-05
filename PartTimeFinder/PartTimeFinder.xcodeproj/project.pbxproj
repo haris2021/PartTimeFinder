@@ -44,6 +44,8 @@
 		2D13237E2D0166DA0017AC3B /* CommentsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13237D2D0166D10017AC3B /* CommentsTableView.swift */; };
 		2D1323802D0168520017AC3B /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13237F2D0168450017AC3B /* CommentsTableViewController.swift */; };
 		2D1323832D016A2E0017AC3B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1323822D016A2B0017AC3B /* Comment.swift */; };
+		2D1323852D0211C70017AC3B /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1323842D0211BF0017AC3B /* Background.swift */; };
+		2D1323872D0249700017AC3B /* DisplayJobsProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1323862D0249580017AC3B /* DisplayJobsProgressIndicatorManager.swift */; };
 		2D5DCA3E2CED42260037CBBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5DCA3D2CED42260037CBBB /* AppDelegate.swift */; };
 		2D5DCA402CED42260037CBBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5DCA3F2CED42260037CBBB /* SceneDelegate.swift */; };
 		2D5DCA422CED42260037CBBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5DCA412CED42260037CBBB /* ViewController.swift */; };
@@ -86,6 +88,8 @@
 		2D13237D2D0166D10017AC3B /* CommentsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableView.swift; sourceTree = "<group>"; };
 		2D13237F2D0168450017AC3B /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
 		2D1323822D016A2B0017AC3B /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		2D1323842D0211BF0017AC3B /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		2D1323862D0249580017AC3B /* DisplayJobsProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayJobsProgressIndicatorManager.swift; sourceTree = "<group>"; };
 		2D5DCA3A2CED42260037CBBB /* PartTimeFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartTimeFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D5DCA3D2CED42260037CBBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D5DCA3F2CED42260037CBBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 		2D1323272CF0C2860017AC3B /* Job Details Screen */ = {
 			isa = PBXGroup;
 			children = (
+				2D1323862D0249580017AC3B /* DisplayJobsProgressIndicatorManager.swift */,
 				2D13232C2CF0C2E40017AC3B /* JobDetailsView.swift */,
 				2D13232E2CF0C3000017AC3B /* JobDetailsViewController.swift */,
 				2D1323632CF3FAD60017AC3B /* ActionsManager.swift */,
@@ -243,6 +248,7 @@
 		2D5DCA3C2CED42260037CBBB /* PartTimeFinder */ = {
 			isa = PBXGroup;
 			children = (
+				2D1323842D0211BF0017AC3B /* Background.swift */,
 				2D13235C2CF1ADC00017AC3B /* Data Models */,
 				2D1323782D0166220017AC3B /* CommentsScreen */,
 				2D13236F2CFE66D10017AC3B /* Configs.swift */,
@@ -355,6 +361,7 @@
 				2D1323832D016A2E0017AC3B /* Comment.swift in Sources */,
 				1A992C8B2CED487600009C19 /* PhotoManager.swift in Sources */,
 				2D1323682CFE5ED70017AC3B /* JobsTableViewCell.swift in Sources */,
+				2D1323852D0211C70017AC3B /* Background.swift in Sources */,
 				2D13235A2CF1A99F0017AC3B /* ProgressSpinnerDelegate.swift in Sources */,
 				2D13235B2CF1A99F0017AC3B /* ProgressSpinnerViewController.swift in Sources */,
 				2D13236E2CFE609D0017AC3B /* ImageViewUnits.swift in Sources */,
@@ -372,6 +379,7 @@
 				2D1323662CF400F00017AC3B /* Job.swift in Sources */,
 				2D1323352CF0C35A0017AC3B /* LoginView.swift in Sources */,
 				1A992C892CED486300009C19 /* AddJobsProgressIndicatorManager.swift in Sources */,
+				2D1323872D0249700017AC3B /* DisplayJobsProgressIndicatorManager.swift in Sources */,
 				2D1323312CF0C3150017AC3B /* SignUpView.swift in Sources */,
 				2D5DCA3E2CED42260037CBBB /* AppDelegate.swift in Sources */,
 				2D13235E2CF1ADCF0017AC3B /* User.swift in Sources */,

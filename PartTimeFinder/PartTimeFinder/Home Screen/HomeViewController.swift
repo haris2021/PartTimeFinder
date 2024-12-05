@@ -93,18 +93,19 @@ class HomeViewController: UIViewController {
         )
         
         homeView.floatingButtonAddJobs.addTarget(self, action: #selector(addJobButtonTapped), for: .touchUpInside)
-//        setupProfilePicGesture()
+        setupProfilePicGesture()
+        Utils.addTapGestureToDismissKeyboard(on:self)
         print("hello")
     }
     
-//    func setupProfilePicGesture() {
-        // Add a tap gesture recognizer to profilePic
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onProfilePicTapped))
+    func setupProfilePicGesture() {
+        //         Add a tap gesture recognizer to profilePic
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onProfilePicTapped))
 //        homeView.profilePic.isUserInteractionEnabled = true // Enable interaction on the image view
 //        homeView.profilePic.addGestureRecognizer(tapGesture)
-//        print("Gesture recognizer added to profilePic")  // Debugging print
-//        
-//    }
+        print("Gesture recognizer added to profilePic")  // Debugging print
+        
+    }
     
     @objc func onProfilePicTapped() {
         // Handle the profile picture tap
@@ -140,8 +141,14 @@ extension HomeViewController: UISearchBarDelegate {
             print("inside searchbar 2")
             
             isSearchActive = true
+            
             filteredJobsList = jobsList.filter { job in
                 return job.jobName.lowercased().contains(searchText.lowercased())
+            }
+            
+            // if filteredJob is empty call alert
+            if filteredJobsList.isEmpty {
+                Utils.throwAlert(on: self, title: "No result", message: "No results found for \"\(searchText)\".")
             }
         }
         homeView.tableViewJobs.reloadData() // Reload the table with filtered data

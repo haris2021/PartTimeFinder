@@ -22,7 +22,7 @@ class SignUpView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        setupBackground()
         
         setuplabelTitle()
         setuptextFieldName()
@@ -73,6 +73,7 @@ class SignUpView: UIView {
         textFieldEmail = UITextField()
         textFieldEmail.placeholder = "Email ID"
         textFieldEmail.borderStyle = .roundedRect
+        textFieldEmail.autocapitalizationType = .none // Disable automatic capitalization
         textFieldEmail.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldEmail)
     }
@@ -89,6 +90,7 @@ class SignUpView: UIView {
         textFieldPassword = UITextField()
         textFieldPassword.placeholder = "Password"
         textFieldPassword.borderStyle = .roundedRect
+        textFieldPassword.isSecureTextEntry = true // Enable secure text entry
         textFieldPassword.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldPassword)
     }
@@ -97,6 +99,7 @@ class SignUpView: UIView {
         textFieldRepeatPassword = UITextField()
         textFieldRepeatPassword.placeholder = "Retype Password"
         textFieldRepeatPassword.borderStyle = .roundedRect
+        textFieldRepeatPassword.isSecureTextEntry = true // Enable secure text entry
         textFieldRepeatPassword.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldRepeatPassword)
     }

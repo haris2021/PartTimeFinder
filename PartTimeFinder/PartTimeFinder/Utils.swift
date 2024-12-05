@@ -25,4 +25,28 @@ class Utils {
         let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
         return !emailPredicate.evaluate(with: email) || email.isEmpty
     }
+    // Add Tap Gesture to Dismiss Keyboard
+    static func addTapGestureToDismissKeyboard(on viewController: UIViewController) {
+        let tapGesture = UITapGestureRecognizer(target: viewController, action: #selector(viewController.dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        viewController.view.addGestureRecognizer(tapGesture)
+    }
+    
+    // Vaidation for zipCode
+    
+    static func isValidUSZipCode(_ zipCode: String) -> Bool {
+        //        let zipCodePattern = "^[0-9]{5}$|^[0-9]{5}-[0-9]{4}$" // Only accepts exactly 5 digits or 5-4 format
+        let zipCodePattern = "^(?!00000$|[0]{5}(-[0]{4})?$)[0-9]{5}$|^[0-9]{5}-[0-9]{4}$" // Exclude 00000 and all-zero zip codes
+        
+        let zipCodePredicate = NSPredicate(format: "SELF MATCHES %@", zipCodePattern)
+        return zipCodePredicate.evaluate(with: zipCode)
+    }
+    
+}
+
+// Extend UIViewController to Add Dismiss Keyboard Method
+extension UIViewController {
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
 }

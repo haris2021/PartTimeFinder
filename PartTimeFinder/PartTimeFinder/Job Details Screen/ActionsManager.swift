@@ -159,6 +159,7 @@ extension JobDetailsViewController {
     }
     
     func showDirectionsToZipCode(zipCode: String) {
+//        hideActivityIndicator()
         // 1. Get the user's current location
         guard let currentLocation = self.currentLocation else { return }
         print("currentLocation" , currentLocation)
@@ -219,4 +220,6 @@ extension JobDetailsViewController {
             }
         }
     }
+    
+    
 }

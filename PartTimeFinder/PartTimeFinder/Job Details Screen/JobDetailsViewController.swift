@@ -18,19 +18,22 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
     var signedInUserEmail: String?
     var jobID: String?
     let database = Firestore.firestore()
+    let childProgressView = ProgressSpinnerViewController()
+
     
     // location
     
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     
+
     override func loadView() {
+//        hideActivityIndicator()  // Ensure the indicator is hidden when returning to this screen
         view = jobDetailsView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         fetchJobDetails()
         
         // Do any additional setup after loading the view.
@@ -46,6 +49,8 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
+//        hideActivityIndicator()  // Ensure the indicator is hidden when returning to this screen
+
     }
     
     @objc func fetchJobDetails() {
@@ -71,6 +76,13 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
                         self.jobDetailsView.postingDateLabel.text = job.jobPostingDate
                         self.jobDetailsView.likeCounterLabel.text = "\(job.jobLikedBy.count)"
                         self.jobDetailsView.dislikeCounterLabel.text = "\(job.jobDislikedBy.count)"
+                        
+                        if let imageURL = URL(string: job.jobImage) {
+//                            cell.jobImageView.loadRemoteImage(from: imageURL)
+                            self.jobDetailsView.jobImageView.loadRemoteImage(from: imageURL)
+
+                        }
+                        
                         
                         if let userEmail = self.signedInUserEmail {
                             print("1")
@@ -112,6 +124,7 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
     
     @objc func onDirectionsIconTapped(){
         manageDirections()
+//        showActivityIndicator()
     }
     
 }

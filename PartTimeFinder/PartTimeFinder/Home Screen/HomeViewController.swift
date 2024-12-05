@@ -67,20 +67,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        title = "Home Screen"
-        
-        //        navigationItem.rightBarButtonItem = UIBarButtonItem(
-        //            title: "Profile", style: .plain, target: self,
-        //            action: #selector(onProfileBarButtonTapped)
-        //        )
-        
-        
-        
-        //        navigationItem.rightBarButtonItem = homeView.profilePic(
-        //                    target: self,
-        //                    action: #selector(onProfileBarButtonTapped)
-        //        )
-        
         homeView.tableViewJobs.delegate = self
         homeView.tableViewJobs.dataSource = self
         //MARK: removing the separator line...
@@ -88,10 +74,9 @@ class HomeViewController: UIViewController {
         
         homeView.searchBar.delegate = self
         
-        
         homeView.floatingButtonAddJobs.addTarget(self, action: #selector(onJobDetailsButtonTapped), for: .touchUpInside)
         setupProfilePicGesture()
-        print("hello")
+        Utils.addTapGestureToDismissKeyboard(on:self)
     }
     
     func setupProfilePicGesture() {

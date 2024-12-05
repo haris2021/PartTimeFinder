@@ -73,14 +73,13 @@ class HomeView: UIView, UISearchBarDelegate {
         searchBar.placeholder = "Search by title"
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.isUserInteractionEnabled = true
+    
         
         
         // Add the search bar to your view
         self.addSubview(searchBar)
         
     }
-    
-    
     
     
     func setupFloatingButtonAddJobs()
@@ -102,36 +101,6 @@ class HomeView: UIView, UISearchBarDelegate {
     
     func initConstraints() {
         NSLayoutConstraint.activate([
-            //            buttonDummy.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 32),
-            //            buttonDummy.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            //            buttonDummy.widthAnchor.constraint(equalToConstant: 100),
-            //            buttonDummy.heightAnchor.constraint(equalToConstant: 100),
-            
-            //            profilePic.widthAnchor.constraint(equalToConstant: 42),
-            //            profilePic.heightAnchor.constraint(equalToConstant: 42),
-            //            profilePic.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
-            //            profilePic.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            
-            // working code
-            
-            //            profilePic.widthAnchor.constraint(equalToConstant:  40),
-            //            profilePic.heightAnchor.constraint(equalToConstant: 40),
-            //            profilePic.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: -33),
-            //            profilePic.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -33),
-            //
-            //            searchBar.topAnchor.constraint(equalTo: self.topAnchor),
-            //            searchBar.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            //            searchBar.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            //
-            //            tableViewJobs.topAnchor.constraint(equalTo: searchBar.topAnchor, constant: 50),
-            //            tableViewJobs.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
-            //            tableViewJobs.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            //            tableViewJobs.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            //
-            //            floatingButtonAddJobs.widthAnchor.constraint(equalToConstant: 48),
-            //            floatingButtonAddJobs.heightAnchor.constraint(equalToConstant: 48),
-            //            floatingButtonAddJobs.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -16),
-            //            floatingButtonAddJobs.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
             // Profile Picture Constraints
             profilePic.widthAnchor.constraint(equalToConstant: 40),
@@ -143,6 +112,7 @@ class HomeView: UIView, UISearchBarDelegate {
             searchBar.topAnchor.constraint(equalTo: profilePic.topAnchor, constant: 78),  // Make space below the profile pic
             searchBar.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             searchBar.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+
             
             // Table View Constraints
             tableViewJobs.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 8),  // Space below the search bar

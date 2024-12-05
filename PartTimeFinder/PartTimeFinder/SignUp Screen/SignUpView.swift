@@ -52,27 +52,13 @@ class SignUpView: UIView {
         textFieldName.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldName)
     }
-    
-//    func setupbuttonProfilePic() {
-//        buttonProfilePic = UIButton(type: .system)
-//        buttonProfilePic.setTitle("Choose Image", for: .normal)
-//        buttonProfilePic.setTitleColor(.white, for: .normal)
-//        buttonProfilePic.backgroundColor = .systemBlue
-//        buttonProfilePic.layer.cornerRadius = 8
-//        buttonProfilePic.contentHorizontalAlignment = .leading // Align content to the left
-//        
-//        // Padding: Add content insets manually
-//        buttonProfilePic.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0) // Title padding
-//        
-//        buttonProfilePic.translatesAutoresizingMaskIntoConstraints = false
-//        self.addSubview(buttonProfilePic)
-//    }
 
     
     func setuptextFieldEmail() {
         textFieldEmail = UITextField()
         textFieldEmail.placeholder = "Email ID"
         textFieldEmail.borderStyle = .roundedRect
+        textFieldEmail.autocapitalizationType = .none // Disable automatic capitalization
         textFieldEmail.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldEmail)
     }
@@ -89,6 +75,7 @@ class SignUpView: UIView {
         textFieldPassword = UITextField()
         textFieldPassword.placeholder = "Password"
         textFieldPassword.borderStyle = .roundedRect
+        textFieldPassword.isSecureTextEntry = true // Enable secure text entry
         textFieldPassword.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldPassword)
     }
@@ -97,6 +84,8 @@ class SignUpView: UIView {
         textFieldRepeatPassword = UITextField()
         textFieldRepeatPassword.placeholder = "Retype Password"
         textFieldRepeatPassword.borderStyle = .roundedRect
+        textFieldRepeatPassword.isSecureTextEntry = true // Enable secure text entry
+
         textFieldRepeatPassword.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldRepeatPassword)
     }
@@ -125,11 +114,6 @@ class SignUpView: UIView {
             textFieldName.topAnchor.constraint(equalTo: labelTitle.bottomAnchor, constant: 32),
             textFieldName.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             textFieldName.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            
-            // buttonProfilePic.topAnchor.constraint(equalTo: textFieldName.bottomAnchor, constant: 16),
-            // buttonProfilePic.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            // buttonProfilePic.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            // buttonProfilePic.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
             textFieldEmail.topAnchor.constraint(equalTo: textFieldName.bottomAnchor, constant: 16),
             textFieldEmail.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),

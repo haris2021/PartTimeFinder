@@ -10,6 +10,7 @@
 		1A992C872CED484600009C19 /* AddJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A992C862CED484600009C19 /* AddJobsViewController.swift */; };
 		1A992C892CED486300009C19 /* AddJobsProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A992C882CED486300009C19 /* AddJobsProgressIndicatorManager.swift */; };
 		1A992C8B2CED487600009C19 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A992C8A2CED487600009C19 /* PhotoManager.swift */; };
+		1A9C81C32D020BB30002FDC6 /* DisplayJobsProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9C81C22D020BB30002FDC6 /* DisplayJobsProgressIndicatorManager.swift */; };
 		2D13232D2CF0C2F20017AC3B /* JobDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13232C2CF0C2E40017AC3B /* JobDetailsView.swift */; };
 		2D13232F2CF0C3070017AC3B /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13232E2CF0C3000017AC3B /* JobDetailsViewController.swift */; };
 		2D1323312CF0C3150017AC3B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1323302CF0C30E0017AC3B /* SignUpView.swift */; };
@@ -51,6 +52,7 @@
 		1A992C862CED484600009C19 /* AddJobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobsViewController.swift; sourceTree = "<group>"; };
 		1A992C882CED486300009C19 /* AddJobsProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobsProgressIndicatorManager.swift; sourceTree = "<group>"; };
 		1A992C8A2CED487600009C19 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
+		1A9C81C22D020BB30002FDC6 /* DisplayJobsProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayJobsProgressIndicatorManager.swift; sourceTree = "<group>"; };
 		2D13232C2CF0C2E40017AC3B /* JobDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsView.swift; sourceTree = "<group>"; };
 		2D13232E2CF0C3000017AC3B /* JobDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
 		2D1323302CF0C30E0017AC3B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				2D13232C2CF0C2E40017AC3B /* JobDetailsView.swift */,
 				2D13232E2CF0C3000017AC3B /* JobDetailsViewController.swift */,
 				2D1323632CF3FAD60017AC3B /* ActionsManager.swift */,
+				1A9C81C22D020BB30002FDC6 /* DisplayJobsProgressIndicatorManager.swift */,
 			);
 			path = "Job Details Screen";
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				2D13232D2CF0C2F20017AC3B /* JobDetailsView.swift in Sources */,
 				2D13233E2CF0C3920017AC3B /* ChatView.swift in Sources */,
 				2D13232F2CF0C3070017AC3B /* JobDetailsViewController.swift in Sources */,
+				1A9C81C32D020BB30002FDC6 /* DisplayJobsProgressIndicatorManager.swift in Sources */,
 				2D1323662CF400F00017AC3B /* Job.swift in Sources */,
 				2D1323352CF0C35A0017AC3B /* LoginView.swift in Sources */,
 				1A992C892CED486300009C19 /* AddJobsProgressIndicatorManager.swift in Sources */,

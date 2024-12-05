@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddJobsView: UIView {
+class AddJobsView: UIView, UITextViewDelegate {
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -21,7 +21,7 @@ class AddJobsView: UIView {
     var textFieldJobCompany: UITextField!
     var textViewJobDesc: UITextView!
     var textFieldJobName: UITextField!
-    var textFieldJobPosterEmail: UITextField!
+    var textFieldJobPosterLocation: UITextField!
     var textFieldJobPostingDate: UITextField!
     var textFieldJobPostingZip: UITextField!
     
@@ -37,7 +37,7 @@ class AddJobsView: UIView {
         setuptextFieldJobCompany()
         setuptextFieldJobDesc()
         setuptextFieldJobName()
-        setuptextFieldJobPosterEmail()
+        setuptextFieldJobPosterLocation()
         setuptextFieldJobPostingDate()
         setuptextFieldJobPostingZip()
         
@@ -69,7 +69,6 @@ class AddJobsView: UIView {
           buttonTakePhoto = UIButton(type: .system)
           buttonTakePhoto.setTitle("", for: .normal)
           buttonTakePhoto.setImage(UIImage(systemName: "camera.fill")?.withRenderingMode(.alwaysOriginal), for: .normal)
-          //buttonTakePhoto.setImage(UIImage(systemName: "camera.fill")?.withRenderingMode(.alwaysOriginal), for: .normal)
           buttonTakePhoto.contentHorizontalAlignment = .fill
           buttonTakePhoto.contentVerticalAlignment = .fill
           buttonTakePhoto.imageView?.contentMode = .scaleAspectFit
@@ -99,11 +98,28 @@ class AddJobsView: UIView {
             textViewJobDesc.isScrollEnabled = true // Allows scrolling for long text
             textViewJobDesc.isEditable = true
             textViewJobDesc.isSelectable = true
-
-            // Optionally, add placeholder behavior
-           // textViewJobDesc.delegate = self // Set the delegate to self to manage placeholder behavior
+        
+            // Set delegate to manage placeholder behavior
+            textViewJobDesc.delegate = self
             self.addSubview(textViewJobDesc)
     }
+    
+    // By default TextView does not support placeholder.
+        func textViewDidBeginEditing(_ textView: UITextView) {
+            if textView.textColor == .lightGray {
+                textView.text = "" // Clear placeholder text
+                textView.textColor = .black // Set text color to black
+            }
+        }
+    
+    // By default TextView does not support placeholder.
+    func textViewDidEndEditing(_ textView: UITextView) {
+            if textView.text.isEmpty {
+                textView.text = "Enter job description here..." // Restore placeholder text
+                textView.textColor = .lightGray // Set placeholder color
+            }
+        }
+    
 
     func setuptextFieldJobName() {
         textFieldJobName = UITextField()
@@ -114,13 +130,13 @@ class AddJobsView: UIView {
         self.addSubview(textFieldJobName)
     }
 
-    func setuptextFieldJobPosterEmail() {
-        textFieldJobPosterEmail = UITextField()
-        textFieldJobPosterEmail.placeholder = "Job Poster Email"
-        textFieldJobPosterEmail.keyboardType = .emailAddress
-        textFieldJobPosterEmail.borderStyle = .roundedRect
-        textFieldJobPosterEmail.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(textFieldJobPosterEmail)
+    func setuptextFieldJobPosterLocation() {
+        textFieldJobPosterLocation = UITextField()
+        textFieldJobPosterLocation.placeholder = "Job Location"
+        textFieldJobPosterLocation.keyboardType = .default
+        textFieldJobPosterLocation.borderStyle = .roundedRect
+        textFieldJobPosterLocation.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(textFieldJobPosterLocation)
     }
 
     func setuptextFieldJobPostingDate() {
@@ -138,6 +154,7 @@ class AddJobsView: UIView {
         textFieldJobPostingZip.placeholder = "Posting Zip"
         textFieldJobPostingZip.keyboardType = .default
         textFieldJobPostingZip.borderStyle = .roundedRect
+        textFieldJobPostingZip.keyboardType = .numberPad // Set numeric keyboard
         textFieldJobPostingZip.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldJobPostingZip)
         
@@ -146,14 +163,10 @@ class AddJobsView: UIView {
     func initConstraints() {
         NSLayoutConstraint.activate([
            
-            // New constraints for job-related fields
             textFieldJobCompany.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
             textFieldJobCompany.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldJobCompany.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
-//            textViewJobDesc.topAnchor.constraint(equalTo: textFieldJobCompany.bottomAnchor, constant: 16),
-//            textViewJobDesc.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-//            textViewJobDesc.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
                 textViewJobDesc.topAnchor.constraint(equalTo: textFieldJobCompany.bottomAnchor, constant: 16),
                 textViewJobDesc.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
@@ -164,11 +177,11 @@ class AddJobsView: UIView {
             textFieldJobName.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldJobName.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
-            textFieldJobPosterEmail.topAnchor.constraint(equalTo: textFieldJobName.bottomAnchor, constant: 16),
-            textFieldJobPosterEmail.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            textFieldJobPosterEmail.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
+            textFieldJobPosterLocation.topAnchor.constraint(equalTo: textFieldJobName.bottomAnchor, constant: 16),
+            textFieldJobPosterLocation.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            textFieldJobPosterLocation.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
-            textFieldJobPostingDate.topAnchor.constraint(equalTo: textFieldJobPosterEmail.bottomAnchor, constant: 16),
+            textFieldJobPostingDate.topAnchor.constraint(equalTo: textFieldJobPosterLocation.bottomAnchor, constant: 16),
             textFieldJobPostingDate.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldJobPostingDate.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
@@ -176,7 +189,6 @@ class AddJobsView: UIView {
             textFieldJobPostingZip.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldJobPostingZip.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
-            // Existing layout for photo and register button
             buttonTakePhoto.topAnchor.constraint(equalTo: textFieldJobPostingZip.bottomAnchor, constant: 16),
             buttonTakePhoto.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             

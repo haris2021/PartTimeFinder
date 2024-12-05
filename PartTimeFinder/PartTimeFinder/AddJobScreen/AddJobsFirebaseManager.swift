@@ -73,7 +73,7 @@ extension AddJobsViewController{
             let jobCompany = addJobsView.textFieldJobCompany.text, !jobCompany.isEmpty,
             let jobDesc = addJobsView.textViewJobDesc.text, !jobDesc.isEmpty,
             let jobName = addJobsView.textFieldJobName.text, !jobName.isEmpty,
-            let jobPosterEmail = addJobsView.textFieldJobPosterEmail.text, !jobPosterEmail.isEmpty,
+            let jobPosterLocation = addJobsView.textFieldJobPosterLocation.text, !jobPosterLocation.isEmpty,
             let jobPostingDate = addJobsView.textFieldJobPostingDate.text, !jobPostingDate.isEmpty,
             let jobPostingZip = addJobsView.textFieldJobPostingZip.text, !jobPostingZip.isEmpty
         else {
@@ -82,13 +82,22 @@ extension AddJobsViewController{
             return
         }
         
+        // zip code validation check
+        if !Utils.isValidUSZipCode(jobPostingZip) {
+                Utils.throwAlert(on: self, title: "Invalid ZIP Code", message: "Please enter a valid 5-digit US ZIP Code.")
+                hideActivityIndicator()
+                return
+            }
+        
+        
+        
         // Create a new job object
         let newJob = Job(
             jobName: jobName,
             jobCompany: jobCompany,
             jobDesc: jobDesc,
             jobImage: photoURL.absoluteString,
-            jobPosterEmail: jobPosterEmail,
+            jobPosterLocation: jobPosterLocation,
             jobPostingDate: jobPostingDate,
             jobPostingZip: jobPostingZip,
             jobLikedBy: [],

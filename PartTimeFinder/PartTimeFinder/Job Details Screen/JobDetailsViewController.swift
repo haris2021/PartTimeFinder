@@ -28,7 +28,7 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
         view = jobDetailsView
     }
     
-    verride func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchJobDetails() // Refresh job details, including comment count
     }

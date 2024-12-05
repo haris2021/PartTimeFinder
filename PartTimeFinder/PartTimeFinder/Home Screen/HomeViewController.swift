@@ -18,8 +18,6 @@ class HomeViewController: UIViewController {
     
     var jobsList = [Job]()
     var filteredJobsList = [Job]() // List to store filtered jobs
-    
-    var signedInUserEmail: String?
     var isSearchActive = false // Flag to determine if the search is active
     let database = Firestore.firestore()
     var currentUser:FirebaseAuth.User?
@@ -28,16 +26,15 @@ class HomeViewController: UIViewController {
         view = homeView
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         fetchJobs()
         
-        if let url = self.currentUser?.photoURL
-        {
-            self.homeView.profilePic.loadRemoteImage(from: url)
-        }
+//        if let url = self.currentUser?.photoURL
+//        {
+//            self.homeView.profilePic.loadRemoteImage(from: url)
+//        }
         
         
     }
@@ -88,20 +85,26 @@ class HomeViewController: UIViewController {
         
         homeView.searchBar.delegate = self
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "person.crop.circle"), // Use a system icon
+            style: .plain,
+            target: self,
+            action: #selector(onProfilePicTapped)
+        )
         
-        homeView.floatingButtonAddJobs.addTarget(self, action: #selector(onJobDetailsButtonTapped), for: .touchUpInside)
-        setupProfilePicGesture()
+        homeView.floatingButtonAddJobs.addTarget(self, action: #selector(addJobButtonTapped), for: .touchUpInside)
+//        setupProfilePicGesture()
         print("hello")
     }
     
-    func setupProfilePicGesture() {
+//    func setupProfilePicGesture() {
         // Add a tap gesture recognizer to profilePic
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onProfilePicTapped))
-        homeView.profilePic.isUserInteractionEnabled = true // Enable interaction on the image view
-        homeView.profilePic.addGestureRecognizer(tapGesture)
-        print("Gesture recognizer added to profilePic")  // Debugging print
-        
-    }
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onProfilePicTapped))
+//        homeView.profilePic.isUserInteractionEnabled = true // Enable interaction on the image view
+//        homeView.profilePic.addGestureRecognizer(tapGesture)
+//        print("Gesture recognizer added to profilePic")  // Debugging print
+//        
+//    }
     
     @objc func onProfilePicTapped() {
         // Handle the profile picture tap
@@ -116,8 +119,7 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(profileScreen, animated: true)
     }
     
-    @objc func onJobDetailsButtonTapped(){
-        
+    @objc func addJobButtonTapped(){
         let addNewJob = AddJobsViewController()
         navigationController?.pushViewController(addNewJob, animated: true)
         

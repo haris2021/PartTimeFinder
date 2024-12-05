@@ -30,7 +30,7 @@ extension JobDetailsViewController {
                     
                     do {
                         var job = try document.data(as: Job.self)
-                        if let signedInUserEmail = self.signedInUserEmail {
+                        if let signedInUserEmail = self.currentUser?.email {
                             print(signedInUserEmail)
                             if let index = job.jobLikedBy.firstIndex(of: signedInUserEmail)  {
                                 job.jobLikedBy.remove(at: index)
@@ -88,7 +88,7 @@ extension JobDetailsViewController {
                     
                     do {
                         var job = try document.data(as: Job.self)
-                        if let signedInUserEmail = self.signedInUserEmail {
+                        if let signedInUserEmail = self.currentUser?.email {
                             if let index = job.jobDislikedBy.firstIndex(of: signedInUserEmail) {
                                 job.jobDislikedBy.remove(at: index)
                                 if let currentDislikes = Int(self.jobDetailsView.dislikeCounterLabel.text ?? "0") {
@@ -130,7 +130,10 @@ extension JobDetailsViewController {
     }
     
     func manageComments() {
-        
+        let commentsScreen = CommentsViewController()
+        commentsScreen.jobID = jobID
+        commentsScreen.commenterName = currentUser?.displayName;
+        self.navigationController?.pushViewController(commentsScreen, animated: true)
     }
     
     func manageDirections() {

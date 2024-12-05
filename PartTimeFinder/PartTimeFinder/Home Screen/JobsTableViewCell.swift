@@ -25,11 +25,6 @@ class JobsTableViewCell: UITableViewCell {
         initConstraints()
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    // Wrapper view for the card-like appearance
     func setupWrapperCellView() {
         wrapperCellView = UIView()
         wrapperCellView.backgroundColor = .white
@@ -42,7 +37,6 @@ class JobsTableViewCell: UITableViewCell {
         self.addSubview(wrapperCellView)
     }
 
-    // Job Image View (Circular or rounded corner)
     func setupJobImageView() {
         jobImageView = UIImageView()
         jobImageView.contentMode = .scaleAspectFill
@@ -54,7 +48,6 @@ class JobsTableViewCell: UITableViewCell {
         wrapperCellView.addSubview(jobImageView)
     }
 
-    // Job Name Label
     func setupLabelJobName() {
         labelJobName = UILabel()
         labelJobName.font = UIFont.boldSystemFont(ofSize: 18)
@@ -63,7 +56,6 @@ class JobsTableViewCell: UITableViewCell {
         wrapperCellView.addSubview(labelJobName)
     }
 
-    // Job Company Label
     func setupLabelJobCompany() {
         labelJobCompany = UILabel()
         labelJobCompany.font = UIFont.systemFont(ofSize: 16)
@@ -73,31 +65,28 @@ class JobsTableViewCell: UITableViewCell {
         wrapperCellView.addSubview(labelJobCompany)
     }
 
-    // Define constraints
     func initConstraints() {
         NSLayoutConstraint.activate([
-            // Wrapper Cell View (Card)
             wrapperCellView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             wrapperCellView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             wrapperCellView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             wrapperCellView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
 
-            // Job Image View
             jobImageView.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: 16),
             jobImageView.topAnchor.constraint(equalTo: wrapperCellView.topAnchor, constant: 16),
             jobImageView.widthAnchor.constraint(equalToConstant: 60),  // Circular image size
             jobImageView.heightAnchor.constraint(equalTo: jobImageView.widthAnchor), // Maintain circle shape
 
-            // Job Name Label
             labelJobName.topAnchor.constraint(equalTo: wrapperCellView.topAnchor, constant: 16),
             labelJobName.leadingAnchor.constraint(equalTo: jobImageView.trailingAnchor, constant: 16),
             labelJobName.trailingAnchor.constraint(equalTo: wrapperCellView.trailingAnchor, constant: -16),
 
-            // Job Company Label
-            labelJobCompany.topAnchor.constraint(equalTo: labelJobName.bottomAnchor, constant: 8),  // Spacing between title and company
+            labelJobCompany.topAnchor.constraint(equalTo: labelJobName.bottomAnchor, constant: 8),
             labelJobCompany.leadingAnchor.constraint(equalTo: labelJobName.leadingAnchor),
             labelJobCompany.trailingAnchor.constraint(equalTo: labelJobName.trailingAnchor),
             labelJobCompany.bottomAnchor.constraint(equalTo: wrapperCellView.bottomAnchor, constant: -16),
+            
+            wrapperCellView.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
 
@@ -108,6 +97,13 @@ class JobsTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
         // Configure the view for the selected state
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
 }
+

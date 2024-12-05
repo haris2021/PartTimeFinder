@@ -15,12 +15,12 @@ import CoreLocation
 class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
     
     let jobDetailsView = JobDetailsView()
-    var signedInUserEmail: String?
+    
     var jobID: String?
     let database = Firestore.firestore()
+    var currentUser:FirebaseAuth.User?
     
     // location
-    
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     
@@ -28,11 +28,17 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
         view = jobDetailsView
     }
     
+    verride func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchJobDetails() // Refresh job details, including comment count
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fetchJobDetails()
         
+        var signedInUserEmail = currentUser?.email
         // Do any additional setup after loading the view.
         title = "Job Description"
         jobDetailsView.likeButton.addTarget(self, action: #selector(onLikeIconTapped), for: .touchUpInside)
@@ -50,9 +56,9 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
     
     @objc func fetchJobDetails() {
         if let jID = jobID {
-            let jobRef = self.database.collection("jobs")
-                .document(jID)
+            let jobRef = self.database.collection("jobs").document(jID)
             
+            // Fetch job details
             jobRef.getDocument { documentSnapshot, error in
                 if let error = error {
                     print("Error fetching job details: \(error.localizedDescription)")
@@ -60,35 +66,45 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
                 }
                 
                 if let document = documentSnapshot, document.exists {
-                    let data = document.data()
-                    
                     do {
-                        var job = try document.data(as: Job.self)
+                        let job = try document.data(as: Job.self)
                         self.jobDetailsView.companyNameLabel.text = job.jobCompany
                         self.jobDetailsView.jobTitleLabel.text = job.jobName
-                        //  jobDetailsView.locationLabel.text = job.location
                         self.jobDetailsView.descriptionLabel.text = job.jobDesc
                         self.jobDetailsView.postingDateLabel.text = job.jobPostingDate
                         self.jobDetailsView.likeCounterLabel.text = "\(job.jobLikedBy.count)"
                         self.jobDetailsView.dislikeCounterLabel.text = "\(job.jobDislikedBy.count)"
                         
-                        if let userEmail = self.signedInUserEmail {
-                            print("1")
-                            if (job.jobLikedBy.contains(userEmail)) {
-                                print("2")
+                        if let userEmail = self.currentUser?.email {
+                            if job.jobLikedBy.contains(userEmail) {
                                 self.jobDetailsView.likeButton.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
                             }
-                            if (job.jobDislikedBy.contains(userEmail)) {
+                            if job.jobDislikedBy.contains(userEmail) {
                                 self.jobDetailsView.dislikeButton.setImage(UIImage(systemName: "hand.thumbsdown.fill"), for: .normal)
                             }
                         }
-                        
-                    }catch {
+                    } catch {
                         print("Error decoding job data: \(error)")
                     }
-                    
                 } else {
                     print("Document does not exist.")
+                }
+            }
+             
+            // Fetch the number of comments
+            let commentsRef = jobRef.collection("comments")
+            commentsRef.getDocuments { snapshot, error in
+                if let error = error {
+                    print("Error fetching comments: \(error.localizedDescription)")
+                    self.jobDetailsView.commentCounterLabel.text = "0"
+                    return
+                }
+                
+                if let snapshot = snapshot {
+                    let commentCount = snapshot.documents.count
+                    self.jobDetailsView.commentCounterLabel.text = "\(commentCount)"
+                } else {
+                    self.jobDetailsView.commentCounterLabel.text = "0"
                 }
             }
         }

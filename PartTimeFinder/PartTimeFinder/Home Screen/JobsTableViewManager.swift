@@ -42,7 +42,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let job = isSearchActive ? filteredJobsList[indexPath.row] : jobsList[indexPath.row]
         
         let jobDetails = JobDetailsViewController()
-        jobDetails.signedInUserEmail = signedInUserEmail
+        jobDetails.currentUser = currentUser
         jobDetails.jobID = job.id
         self.navigationController?.pushViewController(jobDetails, animated: true)
     }

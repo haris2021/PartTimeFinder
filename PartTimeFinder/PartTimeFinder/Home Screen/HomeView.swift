@@ -109,9 +109,13 @@ class HomeView: UIView, UISearchBarDelegate {
             profilePic.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -26),
             
             // Search Bar Constraints
-            searchBar.topAnchor.constraint(equalTo: profilePic.topAnchor, constant: 78),  // Make space below the profile pic
-            searchBar.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+//            searchBar.topAnchor.constraint(equalTo: profilePic.topAnchor, constant: 78),  // Make space below the profile pic
+//            searchBar.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+//            searchBar.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            
+            searchBar.topAnchor.constraint(equalTo: profilePic.bottomAnchor, constant: 16),  // Space below the profile pic
+            searchBar.centerXAnchor.constraint(equalTo: self.centerXAnchor),  // Center horizontally
+            searchBar.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8),  // Set width to 80% of the screen width
 
             
             // Table View Constraints

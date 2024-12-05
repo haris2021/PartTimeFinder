@@ -123,8 +123,14 @@ extension HomeViewController: UISearchBarDelegate {
             print("inside searchbar 2")
             
             isSearchActive = true
+            
             filteredJobsList = jobsList.filter { job in
                 return job.jobName.lowercased().contains(searchText.lowercased())
+            }
+            
+            // if filteredJob is empty call alert
+            if filteredJobsList.isEmpty {
+                Utils.throwAlert(on: self, title: "No result", message: "No results found for \"\(searchText)\".")
             }
         }
         homeView.tableViewJobs.reloadData() // Reload the table with filtered data

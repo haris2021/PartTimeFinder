@@ -78,12 +78,12 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
                         self.jobDetailsView.likeCounterLabel.text = "\(job.jobLikedBy.count)"
                         self.jobDetailsView.dislikeCounterLabel.text = "\(job.jobDislikedBy.count)"
                         self.jobzipcode = job.jobPostingZip
-                        
+                        print(job.jobImage)
                         if let imageURL = URL(string: job.jobImage) {
-                        //                            cell.jobImageView.loadRemoteImage(from: imageURL)
-                                                    self.jobDetailsView.jobImageView.loadRemoteImage(from: imageURL)
-
-                                                }
+                            //                            cell.jobImageView.loadRemoteImage(from: imageURL)
+                            self.jobDetailsView.jobImageView.loadRemoteImage(from: imageURL)
+                            
+                        }
                         
                         if let userEmail = self.currentUser?.email {
                             if job.jobLikedBy.contains(userEmail) {
@@ -100,7 +100,7 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
                     print("Document does not exist.")
                 }
             }
-             
+            
             // Fetch the number of comments
             let commentsRef = jobRef.collection("comments")
             commentsRef.getDocuments { snapshot, error in

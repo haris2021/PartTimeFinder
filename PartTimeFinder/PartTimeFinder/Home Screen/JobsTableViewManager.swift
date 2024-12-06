@@ -33,7 +33,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if let imageURL = URL(string: job.jobImage) {
             // Set the identifier to track which image should be loaded
             cell.jobImageView.accessibilityIdentifier = imageURL.absoluteString
-            cell.jobImageView.loadRemoteImage(from: imageURL)
+            cell.jobImageView.waitAndLoadRemoteImage(from: imageURL)
         } else {
             cell.jobImageView.image = UIImage(named: "defaultImage")
         }

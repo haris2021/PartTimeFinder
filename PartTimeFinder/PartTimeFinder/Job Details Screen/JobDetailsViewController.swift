@@ -24,6 +24,7 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
     // location
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation?
+    var jobzipcode: String?
     
     override func loadView() {
         view = jobDetailsView
@@ -76,6 +77,7 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
                         self.jobDetailsView.postingDateLabel.text = job.jobPostingDate
                         self.jobDetailsView.likeCounterLabel.text = "\(job.jobLikedBy.count)"
                         self.jobDetailsView.dislikeCounterLabel.text = "\(job.jobDislikedBy.count)"
+                        self.jobzipcode = job.jobPostingZip
                         
                         if let imageURL = URL(string: job.jobImage) {
                         //                            cell.jobImageView.loadRemoteImage(from: imageURL)

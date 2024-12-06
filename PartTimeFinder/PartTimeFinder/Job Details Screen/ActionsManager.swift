@@ -142,8 +142,10 @@ extension JobDetailsViewController {
     
     func manageDirections() {
         // Specify the zip code
-        let zipCode = "02120"
-        showDirectionsToZipCode(zipCode: zipCode)
+        
+        if let zipCode = jobzipcode{
+            showDirectionsToZipCode(zipCode: zipCode)
+        }
     }
     
     // CLLocationManager Delegate methods

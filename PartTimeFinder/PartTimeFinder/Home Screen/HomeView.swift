@@ -45,8 +45,19 @@ class HomeView: UIView, UISearchBarDelegate {
         searchBar = UISearchBar()
         searchBar.delegate = self
         searchBar.placeholder = "Search by role"
-        searchBar.backgroundColor = .clear
+//        searchBar.backgroundColor = .clear
         searchBar.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Remove the default background
+        searchBar.backgroundImage = UIImage() // Removes the white background
+//        searchBar.backgroundColor = UIColor.systemTeal // Set your desired color here
+        
+        // Customize the text field
+          searchBar.searchTextField.backgroundColor = UIColor(white: 1.0, alpha: 0.5) // Light white
+          searchBar.searchTextField.layer.cornerRadius = 8
+          searchBar.searchTextField.clipsToBounds = true
+
+        
         searchBar.isUserInteractionEnabled = true
         self.addSubview(searchBar)
     }

@@ -23,17 +23,17 @@ class CommentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Comments on "
+        title = "Comments"
+        Utils.addTapGestureToDismissKeyboard(on:self)
         commentsView.tableViewComment.separatorStyle = .none
-        
-        commentsView.buttonAdd
-            .addTarget(self, action: #selector(onButtonAddCommentTapped), for: .touchUpInside)
         
         commentsView.tableViewComment.delegate = self
         commentsView.tableViewComment.dataSource = self
         
         fetchComments()
-        
+    
+        commentsView.buttonAdd
+            .addTarget(self, action: #selector(onButtonAddCommentTapped), for: .touchUpInside)
     }
     
     @objc func onButtonAddCommentTapped() {

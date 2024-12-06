@@ -25,7 +25,7 @@ class JobDetailsView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .white
+//        self.backgroundColor = .white
         setupBackground()
         
         setupJobImageView()
@@ -40,7 +40,6 @@ class JobDetailsView: UIView {
         jobImageView = UIImageView()
         jobImageView.image = UIImage(systemName: "briefcase")
         jobImageView.contentMode = .scaleAspectFit
-        jobImageView.tintColor = .darkGray
         jobImageView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(jobImageView)
     }
@@ -55,14 +54,12 @@ class JobDetailsView: UIView {
         companyNameLabel = UILabel()
         companyNameLabel.text = "TechCorp Inc."
         companyNameLabel.font = .systemFont(ofSize: 16)
-        companyNameLabel.textColor = .darkGray
         companyNameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(companyNameLabel)
         
         locationLabel = UILabel()
         locationLabel.text = "San Francisco, CA"
         locationLabel.font = .systemFont(ofSize: 14)
-        locationLabel.textColor = .lightGray
         locationLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(locationLabel)
     }

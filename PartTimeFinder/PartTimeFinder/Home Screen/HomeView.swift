@@ -45,6 +45,7 @@ class HomeView: UIView, UISearchBarDelegate {
         searchBar = UISearchBar()
         searchBar.delegate = self
         searchBar.placeholder = "Search by title"
+        searchBar.backgroundColor = .clear
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.isUserInteractionEnabled = true
         self.addSubview(searchBar)
@@ -69,9 +70,9 @@ class HomeView: UIView, UISearchBarDelegate {
     func initConstraints() {
         NSLayoutConstraint.activate([
             
-            searchBar.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),  // Space below the profile pic
-            searchBar.centerXAnchor.constraint(equalTo: self.centerXAnchor),  // Center horizontally
-            searchBar.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8),  // Set width to 80% of the screen width
+            searchBar.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
+            searchBar.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            searchBar.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1), 
             
             tableViewJobs.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 8),  // Space below the search bar
             tableViewJobs.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),

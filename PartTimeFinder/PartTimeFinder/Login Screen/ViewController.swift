@@ -78,10 +78,9 @@ class ViewController: UIViewController {
             if error == nil{
                 let homeScreen = HomeViewController()
                 homeScreen.currentUser = self.currentUser
-//                homeScreen.signedInUserEmail = self.currentUser?.email
                 self.navigationController?.pushViewController(homeScreen, animated: true)
             }else{
-                Utils.throwAlert(on: self, title: "Error", message: "Account doesn't exist")
+                Utils.throwAlert(on: self, title: "Error", message: "Account doesn't exist. Check the email or password")
                 return
             }
             

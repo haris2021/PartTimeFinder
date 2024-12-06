@@ -16,6 +16,7 @@ class JobsTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = .clear
         
         setupWrapperCellView()
         setupJobImageView()
@@ -27,12 +28,10 @@ class JobsTableViewCell: UITableViewCell {
 
     func setupWrapperCellView() {
         wrapperCellView = UIView()
-        wrapperCellView.backgroundColor = .clear
-        wrapperCellView.layer.cornerRadius = 12.0  // Rounded corners for the card
-        wrapperCellView.layer.shadowColor = UIColor.black.cgColor  // Soft shadow effect
-        wrapperCellView.layer.shadowOffset = CGSize(width: 0, height: 4) // Soft lift effect
-        wrapperCellView.layer.shadowRadius = 6.0
-        wrapperCellView.layer.shadowOpacity = 0.1  // Subtle shadow
+        wrapperCellView.backgroundColor = .white // Set the cell's actual background color here
+        wrapperCellView.layer.cornerRadius = 12.0  // Rounded corners
+        wrapperCellView.layer.borderWidth = 1.0    // Border width
+        wrapperCellView.layer.borderColor = UIColor.lightGray.cgColor  // Border color
         wrapperCellView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(wrapperCellView)
     }

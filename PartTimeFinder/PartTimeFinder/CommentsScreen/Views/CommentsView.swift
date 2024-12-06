@@ -10,34 +10,39 @@ import UIKit
 class CommentsView: UIView {
 
     var tableViewComment: UITableView!
+    var bottomAddView: UIView!
+    var textViewAddComment: UITextView!
+    var buttonAdd: UIButton!
     
-    //MARK: bottom view for adding a Contact...
-    var bottomAddView:UIView!
-    var textViewAddComment:UITextView!
-    var buttonAdd:UIButton!
-    
+    private var bottomAddViewBottomConstraint: NSLayoutConstraint!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        self.backgroundColor = .white
         setupBackground()
         
         setupTableViewContacts()
         setupBottomAddView()
-        setupTextFieldAddNote()
+        setupTextFieldAddComment()
         setupButtonAdd()
         
         initConstraints()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
-    //MARK: the table view to show the list of contacts...
-    func setupTableViewContacts(){
+    func setupTableViewContacts() {
         tableViewComment = UITableView()
         tableViewComment.register(CommentsTableView.self, forCellReuseIdentifier: Configs.tableViewCommentsID)
         tableViewComment.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(tableViewComment)
     }
-    
-    func setupBottomAddView(){
+
+    func setupBottomAddView() {
         bottomAddView = UIView()
         bottomAddView.backgroundColor = .white
         bottomAddView.layer.cornerRadius = 6
@@ -48,25 +53,27 @@ class CommentsView: UIView {
         bottomAddView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(bottomAddView)
     }
-    
-    func setupTextFieldAddNote(){
+
+    func setupTextFieldAddComment() {
         textViewAddComment = UITextView()
+        textViewAddComment.font = UIFont.systemFont(ofSize: 18)
         textViewAddComment.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textViewAddComment)
     }
-    
-    func setupButtonAdd(){
+
+    func setupButtonAdd() {
         buttonAdd = UIButton(type: .system)
         buttonAdd.titleLabel?.font = .boldSystemFont(ofSize: 16)
-        buttonAdd.setTitle("Add Comment", for: .normal)
+        buttonAdd.setTitle("Post Comment", for: .normal)
         buttonAdd.translatesAutoresizingMaskIntoConstraints = false
         bottomAddView.addSubview(buttonAdd)
     }
-    
-    func initConstraints(){
-        NSLayoutConstraint.activate([
 
-            bottomAddView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,constant: -8),
+    func initConstraints() {
+        bottomAddViewBottomConstraint = bottomAddView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8)
+        
+        NSLayoutConstraint.activate([
+            bottomAddViewBottomConstraint,
             bottomAddView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             bottomAddView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -8),
             
@@ -85,12 +92,26 @@ class CommentsView: UIView {
             tableViewComment.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             tableViewComment.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -8),
             tableViewComment.bottomAnchor.constraint(equalTo: bottomAddView.topAnchor, constant: -8),
-            
-            
         ])
     }
+
+    @objc func keyboardWillShow(notification: Notification) {
+        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+            let keyboardHeight = keyboardFrame.height
+            bottomAddViewBottomConstraint.constant = -keyboardHeight - 8
+            UIView.animate(withDuration: 0.3) {
+                self.layoutIfNeeded()
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: Notification) {
+        bottomAddViewBottomConstraint.constant = -8
+        UIView.animate(withDuration: 0.3) {
+            self.layoutIfNeeded()
+        }
+    }
     
-    //MARK: initializing constraints...
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

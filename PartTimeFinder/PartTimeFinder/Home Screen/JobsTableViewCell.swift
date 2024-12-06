@@ -72,20 +72,20 @@ class JobsTableViewCell: UITableViewCell {
             wrapperCellView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
 
             jobImageView.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: 16),
-            jobImageView.topAnchor.constraint(equalTo: wrapperCellView.topAnchor, constant: 16),
+            jobImageView.topAnchor.constraint(equalTo: wrapperCellView.topAnchor, constant: 20),
             jobImageView.widthAnchor.constraint(equalToConstant: 60),  // Circular image size
             jobImageView.heightAnchor.constraint(equalTo: jobImageView.widthAnchor), // Maintain circle shape
 
-            labelJobName.topAnchor.constraint(equalTo: wrapperCellView.topAnchor, constant: 16),
+            labelJobName.topAnchor.constraint(equalTo: wrapperCellView.topAnchor, constant: 24),
             labelJobName.leadingAnchor.constraint(equalTo: jobImageView.trailingAnchor, constant: 16),
             labelJobName.trailingAnchor.constraint(equalTo: wrapperCellView.trailingAnchor, constant: -16),
 
             labelJobCompany.topAnchor.constraint(equalTo: labelJobName.bottomAnchor, constant: 8),
             labelJobCompany.leadingAnchor.constraint(equalTo: labelJobName.leadingAnchor),
             labelJobCompany.trailingAnchor.constraint(equalTo: labelJobName.trailingAnchor),
-            labelJobCompany.bottomAnchor.constraint(equalTo: wrapperCellView.bottomAnchor, constant: -16),
+//            labelJobCompany.bottomAnchor.constraint(equalTo: wrapperCellView.bottomAnchor, constant: -16),
             
-            wrapperCellView.heightAnchor.constraint(equalToConstant: 60)
+            wrapperCellView.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
 

@@ -44,7 +44,7 @@ class HomeView: UIView, UISearchBarDelegate {
     func setupSearchBar() {
         searchBar = UISearchBar()
         searchBar.delegate = self
-        searchBar.placeholder = "Search by title"
+        searchBar.placeholder = "Search by role"
         searchBar.backgroundColor = .clear
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.isUserInteractionEnabled = true
@@ -72,7 +72,7 @@ class HomeView: UIView, UISearchBarDelegate {
             
             searchBar.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
             searchBar.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            searchBar.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1), 
+            searchBar.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85),
             
             tableViewJobs.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 8),  // Space below the search bar
             tableViewJobs.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),

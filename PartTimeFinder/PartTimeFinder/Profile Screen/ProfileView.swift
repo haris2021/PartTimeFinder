@@ -25,7 +25,6 @@ class ProfileView: UIView {
     func setupImageViewProfilePic() {
         imageViewProfilePic = UIImageView()
         imageViewProfilePic.image = UIImage(systemName: "person.circle.fill")
-        imageViewProfilePic.tintColor = .gray
         imageViewProfilePic.contentMode = .scaleAspectFit
         imageViewProfilePic.layer.cornerRadius = 50
         imageViewProfilePic.clipsToBounds = true
@@ -46,7 +45,6 @@ class ProfileView: UIView {
         labelEmail = UILabel()
         labelEmail.text = "john.doe@example.com"
         labelEmail.font = UIFont.systemFont(ofSize: 16)
-        labelEmail.textColor = .darkGray
         labelEmail.textAlignment = .center
         labelEmail.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(labelEmail)
@@ -56,7 +54,6 @@ class ProfileView: UIView {
         labelPhoneNum = UILabel()
         labelPhoneNum.text = "+1 (123) 456-7890"
         labelPhoneNum.font = UIFont.systemFont(ofSize: 16)
-        labelPhoneNum.textColor = .darkGray
         labelPhoneNum.textAlignment = .center
         labelPhoneNum.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(labelPhoneNum)

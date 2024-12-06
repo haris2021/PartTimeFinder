@@ -58,7 +58,7 @@ class CommentsView: UIView {
     func setupButtonAdd(){
         buttonAdd = UIButton(type: .system)
         buttonAdd.titleLabel?.font = .boldSystemFont(ofSize: 16)
-        buttonAdd.setTitle("Send Message", for: .normal)
+        buttonAdd.setTitle("Add Comment", for: .normal)
         buttonAdd.translatesAutoresizingMaskIntoConstraints = false
         bottomAddView.addSubview(buttonAdd)
     }

@@ -66,7 +66,7 @@ extension AddJobsViewController{
             }
         }
     }
-
+    
     func addJob(photoURL: URL) {
         // Safely unwrap the input fields
         guard
@@ -83,11 +83,11 @@ extension AddJobsViewController{
         }
         
         // zip code validation check
-                if !Utils.isValidUSZipCode(jobPostingZip) {
-                        Utils.throwAlert(on: self, title: "Invalid ZIP Code", message: "Please enter a valid 5-digit US ZIP Code.")
-                        hideActivityIndicator()
-                        return
-                    }
+        if !Utils.isValidUSZipCode(jobPostingZip) {
+            Utils.throwAlert(on: self, title: "Invalid ZIP Code", message: "Please enter a valid 5-digit US ZIP Code.")
+            hideActivityIndicator()
+            return
+        }
         
         // Create a new job object
         let newJob = Job(
@@ -105,7 +105,7 @@ extension AddJobsViewController{
         // Save the new job to Firestore
         saveNewJobToFireStore(newJob: newJob)
     }
-
+    
     func saveNewJobToFireStore(newJob: Job) {
         // Get the "jobs" collection
         let jobsCollection = database.collection("jobs")
@@ -126,7 +126,7 @@ extension AddJobsViewController{
                     print("Successfully added job with ID: \(jobID)")
                     
                     // Optionally add a subcollection (e.g., "comments")
-                   // self?.addDefaultComments(to: jobID)
+                    // self?.addDefaultComments(to: jobID)
                     
                     // Hide progress indicator and navigate back
                     self?.hideActivityIndicator()

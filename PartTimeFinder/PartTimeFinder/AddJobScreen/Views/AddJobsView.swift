@@ -144,7 +144,7 @@ class AddJobsView: UIView, UITextViewDelegate {
     func setuptextFieldJobPostingZip()
     {
         textFieldJobPostingZip = UITextField()
-        textFieldJobPostingZip.placeholder = "Posting Zip"
+        textFieldJobPostingZip.placeholder = "Zip Code"
         textFieldJobPostingZip.keyboardType = .default
         textFieldJobPostingZip.borderStyle = .roundedRect
         textFieldJobPostingZip.keyboardType = .numberPad // Set numeric keyboard

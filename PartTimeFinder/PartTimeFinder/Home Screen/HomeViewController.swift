@@ -89,34 +89,33 @@ class HomeViewController: UIViewController {
             image: UIImage(systemName: "person.crop.circle"), // Use a system icon
             style: .plain,
             target: self,
-            action: #selector(onProfilePicTapped)
+            action: #selector(onProfileBarButtonTapped)
         )
         
         homeView.floatingButtonAddJobs.addTarget(self, action: #selector(addJobButtonTapped), for: .touchUpInside)
-        setupProfilePicGesture()
+//        setupProfilePicGesture()
         Utils.addTapGestureToDismissKeyboard(on:self)
         print("hello")
     }
     
-    func setupProfilePicGesture() {
-        //         Add a tap gesture recognizer to profilePic
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onProfilePicTapped))
+//    func setupProfilePicGesture() {
+//         Add a tap gesture recognizer to profilePic
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onProfilePicTapped))
 //        homeView.profilePic.isUserInteractionEnabled = true // Enable interaction on the image view
 //        homeView.profilePic.addGestureRecognizer(tapGesture)
-        print("Gesture recognizer added to profilePic")  // Debugging print
-        
-    }
+//        print("Gesture recognizer added to profilePic")  // Debugging print
+//    }
     
-    @objc func onProfilePicTapped() {
-        // Handle the profile picture tap
-        print("Profile picture tapped!")
-        // Add your navigation logic or actions here
-        onProfileBarButtonTapped();
-    }
-    
+//    @objc func onProfilePicTapped() {
+//        // Handle the profile picture tap
+//        print("Profile picture tapped!")
+//        // Add your navigation logic or actions here
+//        onProfileBarButtonTapped();
+//    }
     
     @objc func onProfileBarButtonTapped(){
         let profileScreen = ProfileViewController()
+        profileScreen.signedInEmail = currentUser?.email
         navigationController?.pushViewController(profileScreen, animated: true)
     }
     

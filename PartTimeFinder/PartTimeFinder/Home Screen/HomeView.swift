@@ -17,7 +17,7 @@ class HomeView: UIView, UISearchBarDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        backgroundColor = .white
+        //        backgroundColor = .white
         setupBackground()
         
         setupTableViewJobs()
@@ -69,9 +69,9 @@ class HomeView: UIView, UISearchBarDelegate {
     func initConstraints() {
         NSLayoutConstraint.activate([
             
-            searchBar.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),  // Make space below the profile pic
-            searchBar.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            searchBar.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),  // Space below the profile pic
+            searchBar.centerXAnchor.constraint(equalTo: self.centerXAnchor),  // Center horizontally
+            searchBar.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8),  // Set width to 80% of the screen width
             
             tableViewJobs.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 8),  // Space below the search bar
             tableViewJobs.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),

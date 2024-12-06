@@ -72,6 +72,7 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
                         self.jobDetailsView.companyNameLabel.text = job.jobCompany
                         self.jobDetailsView.jobTitleLabel.text = job.jobName
                         self.jobDetailsView.descriptionLabel.text = job.jobDesc
+                        self.jobDetailsView.locationLabel.text = job.jobPosterLocation
                         self.jobDetailsView.postingDateLabel.text = job.jobPostingDate
                         self.jobDetailsView.likeCounterLabel.text = "\(job.jobLikedBy.count)"
                         self.jobDetailsView.dislikeCounterLabel.text = "\(job.jobDislikedBy.count)"

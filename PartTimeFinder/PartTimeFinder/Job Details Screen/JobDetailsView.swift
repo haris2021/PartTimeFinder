@@ -84,7 +84,7 @@ class JobDetailsView: UIView {
     
     func setupPostingDate() {
         postingDateTitleLabel = UILabel()
-        postingDateTitleLabel.text = "Posted on"
+        postingDateTitleLabel.text = "Job Posted on"
         postingDateTitleLabel.font = .boldSystemFont(ofSize: 20)
         postingDateTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(postingDateTitleLabel)

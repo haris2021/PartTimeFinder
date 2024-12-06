@@ -39,6 +39,8 @@ class CommentsView: UIView {
         tableViewComment = UITableView()
         tableViewComment.register(CommentsTableView.self, forCellReuseIdentifier: Configs.tableViewCommentsID)
         tableViewComment.translatesAutoresizingMaskIntoConstraints = false
+        tableViewComment.backgroundColor = .clear // Matches wrapperCellView
+
         self.addSubview(tableViewComment)
     }
 

@@ -14,11 +14,14 @@ class LoginView: UIView {
     var textFieldPassword: UITextField!
     var buttonLogin: UIButton!
     var buttonSignup: UIButton!
+    var imageViewLogo: UIImageView! // Add the logo image view
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupBackground()
         
+        setupLogo() // Setup logo first
         setupTitleLabel()
         setupEmailField()
         setupPasswordField()
@@ -35,7 +38,22 @@ class LoginView: UIView {
 //        gradientLayer.frame = UIScreen.main.bounds
 //        self.layer.insertSublayer(gradientLayer, at: 0)
 //    }
-//    
+//
+    
+    func setupLogo() {
+           imageViewLogo = UIImageView()
+           imageViewLogo.image = UIImage(named: "Logo") 
+           imageViewLogo.contentMode = .scaleAspectFit
+        
+            // Make the image view's borders rounded
+            imageViewLogo.layer.cornerRadius = 50 // Adjust this value based on the size of the image view
+            imageViewLogo.layer.masksToBounds = true
+        
+           imageViewLogo.translatesAutoresizingMaskIntoConstraints = false
+           self.addSubview(imageViewLogo)
+       }
+    
+    
     func setupTitleLabel() {
         labelTitle = UILabel()
         labelTitle.text = "Welcome to PartTimeFinder"
@@ -110,9 +128,18 @@ class LoginView: UIView {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            labelTitle.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 40),
-            labelTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            labelTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            
+            // Constraints for the logo
+             imageViewLogo.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
+             imageViewLogo.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+             imageViewLogo.widthAnchor.constraint(equalToConstant: 100), // Adjust the size as needed
+             imageViewLogo.heightAnchor.constraint(equalToConstant: 100),
+             
+             // Adjust the title label to be below the logo
+             labelTitle.topAnchor.constraint(equalTo: imageViewLogo.bottomAnchor, constant: 20),
+//            labelTitle.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 40),
+             labelTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+             labelTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
             textFieldEmail.topAnchor.constraint(equalTo: labelTitle.bottomAnchor, constant: 40),
             textFieldEmail.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),

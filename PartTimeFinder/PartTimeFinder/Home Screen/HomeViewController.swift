@@ -30,13 +30,6 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         
         fetchJobs()
-        
-//        if let url = self.currentUser?.photoURL
-//        {
-//            self.homeView.profilePic.loadRemoteImage(from: url)
-//        }
-        
-        
     }
     
     func fetchJobs() {
@@ -64,23 +57,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        title = "Home Screen"
-        
-        //        navigationItem.rightBarButtonItem = UIBarButtonItem(
-        //            title: "Profile", style: .plain, target: self,
-        //            action: #selector(onProfileBarButtonTapped)
-        //        )
-        
-        
-        
-        //        navigationItem.rightBarButtonItem = homeView.profilePic(
-        //                    target: self,
-        //                    action: #selector(onProfileBarButtonTapped)
-        //        )
-        
         homeView.tableViewJobs.delegate = self
         homeView.tableViewJobs.dataSource = self
-        //MARK: removing the separator line...
         homeView.tableViewJobs.separatorStyle = .none
         
         homeView.searchBar.delegate = self
@@ -93,25 +71,9 @@ class HomeViewController: UIViewController {
         )
         
         homeView.floatingButtonAddJobs.addTarget(self, action: #selector(addJobButtonTapped), for: .touchUpInside)
-//        setupProfilePicGesture()
         Utils.addTapGestureToDismissKeyboard(on:self)
         print("hello")
     }
-    
-//    func setupProfilePicGesture() {
-//         Add a tap gesture recognizer to profilePic
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onProfilePicTapped))
-//        homeView.profilePic.isUserInteractionEnabled = true // Enable interaction on the image view
-//        homeView.profilePic.addGestureRecognizer(tapGesture)
-//        print("Gesture recognizer added to profilePic")  // Debugging print
-//    }
-    
-//    @objc func onProfilePicTapped() {
-//        // Handle the profile picture tap
-//        print("Profile picture tapped!")
-//        // Add your navigation logic or actions here
-//        onProfileBarButtonTapped();
-//    }
     
     @objc func onProfileBarButtonTapped(){
         let profileScreen = ProfileViewController()
@@ -124,7 +86,6 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(addNewJob, animated: true)
         
     }
-    
 }
 
 extension HomeViewController: UISearchBarDelegate {

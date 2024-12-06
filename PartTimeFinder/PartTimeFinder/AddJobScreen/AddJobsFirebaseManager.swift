@@ -17,24 +17,20 @@ import FirebaseFirestore
 extension AddJobsViewController{
     
     func uploadJobPhotoToStorage() {
-        // Ensure `pickedImage` is set; if not, set a default photo
         if pickedImage == nil {
             setDefaultPhoto()
         }
         
-        // Safely unwrap the image after ensuring a default is set
         guard let image = pickedImage else {
             print("Failed to set default image")
-            return // If no image is set even after fallback, terminate here
+            return
         }
         
-        // Convert the image to JPEG data
         guard let jpegData = image.jpegData(compressionQuality: 0.8) else {
             print("Failed to convert image to JPEG")
             return
         }
         
-        // Firebase storage upload logic
         let storageRef = storage.reference()
         let imagesRepo = storageRef.child("imagesJobs")
         let imageRef = imagesRepo.child("\(NSUUID().uuidString).jpg")
@@ -45,7 +41,6 @@ extension AddJobsViewController{
                 return
             }
             
-            // Get the download URL
             imageRef.downloadURL { (url, error) in
                 if let error = error {
                     print("Error getting download URL: \(error.localizedDescription)")

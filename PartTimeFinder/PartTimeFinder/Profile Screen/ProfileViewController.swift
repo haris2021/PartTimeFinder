@@ -34,19 +34,21 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func fetchProfileDetails() {
-        self.database.collection("users").getDocuments { (snapshot, error) in
-            if let error = error {
-                print("Error fetching users: \(error.localizedDescription)")
-                return
-            }
+        if let email = signedInEmail {
+            let documentRef = self.database.collection("users").document(email)
             
-            guard let documents = snapshot?.documents else {
-                print("No documents found")
-                return
-            }
-            
-            for document in documents {
-                let data = document.data()
+            documentRef.getDocument { (document, error) in
+                if let error = error {
+                    print("Error fetching user: \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let document = document, document.exists else {
+                    print("No document found for email: \(email)")
+                    return
+                }
+                
+                let data = document.data() ?? [:]
                 self.profileView.labelName.text = "\(data["name"] ?? "Anonymous")"
                 self.profileView.labelEmail.text = "\(data["email"] ?? "")"
                 self.profileView.labelPhoneNum.text = "\(data["phoneNum"] ?? "+1 000 000 0000")"

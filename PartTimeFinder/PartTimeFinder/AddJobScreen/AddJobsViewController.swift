@@ -48,7 +48,7 @@ class AddJobsViewController: UIViewController {
     
     
     @objc func onRegisterTapped() {
-        showActivityIndicator()
+//        showActivityIndicator()
         uploadJobPhotoToStorage()
     }
     

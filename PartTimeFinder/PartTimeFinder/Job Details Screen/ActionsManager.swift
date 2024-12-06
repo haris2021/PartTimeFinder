@@ -136,6 +136,10 @@ extension JobDetailsViewController {
         self.navigationController?.pushViewController(commentsScreen, animated: true)
     }
     
+    func manageChat() {
+        Utils.throwAlert(on: self, title: "Feature Coming Soon", message: "This feature is currently under development. Stay tuned for updates!")
+    }
+    
     func manageDirections() {
         // Specify the zip code
         let zipCode = "02120"

@@ -131,7 +131,7 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func onChatIconTapped(){
-        //        manageChat()
+        manageChat()
     }
     
     @objc func onDirectionsIconTapped(){

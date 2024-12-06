@@ -23,6 +23,7 @@ class CommentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
         title = "Comments"
         Utils.addTapGestureToDismissKeyboard(on:self)
         commentsView.tableViewComment.separatorStyle = .none

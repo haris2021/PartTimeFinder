@@ -2,7 +2,7 @@
 //  CommentsTableViewController.swift
 //  PartTimeFinder
 //
-//  Created by Snehal Bondre on 12/4/24.
+//  Created by Rahul Chandak on 12/4/24.
 //
 
 import Foundation

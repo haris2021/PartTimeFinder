@@ -11,27 +11,22 @@ import UIKit
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120 // Fixed row height
+        return 120
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Show filtered results if search is active, else show the full list
         return isSearchActive ? filteredJobsList.count : jobsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Configs.tableViewJobsID, for: indexPath) as! JobsTableViewCell
 
-        // Get the job from the filtered list or the full list
         let job = isSearchActive ? filteredJobsList[indexPath.row] : jobsList[indexPath.row]
 
-        // Set the text labels
         cell.labelJobName.text = job.jobName
         cell.labelJobCompany.text = job.jobCompany
 
-        // Handle image loading
         if let imageURL = URL(string: job.jobImage) {
-            // Set the identifier to track which image should be loaded
             cell.jobImageView.accessibilityIdentifier = imageURL.absoluteString
             cell.jobImageView.waitAndLoadRemoteImage(from: imageURL)
         } else {

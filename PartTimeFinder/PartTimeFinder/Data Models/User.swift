@@ -2,7 +2,7 @@
 //  User.swift
 //  PartTimeFinder
 //
-//  Created by Snehal Bondre on 11/23/24.
+//  Created by Rahul Chandak on 11/23/24.
 //
 
 import Foundation

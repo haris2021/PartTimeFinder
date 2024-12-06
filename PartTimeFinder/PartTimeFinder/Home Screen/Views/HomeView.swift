@@ -32,8 +32,6 @@ class HomeView: UIView, UISearchBarDelegate {
         tableViewJobs.register(JobsTableViewCell.self, forCellReuseIdentifier: Configs.tableViewJobsID)
         tableViewJobs.translatesAutoresizingMaskIntoConstraints = false
         
-        // New: Enable automatic row height adjustment
-        // added to increase cell height and width
         tableViewJobs.rowHeight = UITableView.automaticDimension
         tableViewJobs.estimatedRowHeight = 80
         
@@ -45,14 +43,10 @@ class HomeView: UIView, UISearchBarDelegate {
         searchBar = UISearchBar()
         searchBar.delegate = self
         searchBar.placeholder = "Search by role"
-//        searchBar.backgroundColor = .clear
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         
-        // Remove the default background
         searchBar.backgroundImage = UIImage() // Removes the white background
-//        searchBar.backgroundColor = UIColor.systemTeal // Set your desired color here
         
-        // Customize the text field
           searchBar.searchTextField.backgroundColor = UIColor(white: 1.0, alpha: 0.5) // Light white
           searchBar.searchTextField.layer.cornerRadius = 8
           searchBar.searchTextField.clipsToBounds = true
@@ -85,7 +79,7 @@ class HomeView: UIView, UISearchBarDelegate {
             searchBar.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             searchBar.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85),
             
-            tableViewJobs.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 8),  // Space below the search bar
+            tableViewJobs.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 8),
             tableViewJobs.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
             tableViewJobs.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             tableViewJobs.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),

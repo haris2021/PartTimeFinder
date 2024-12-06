@@ -32,9 +32,8 @@ class AddJobsViewController: UIViewController {
         Utils.addTapGestureToDismissKeyboard(on:self)
     }
     
-    
     func setDefaultPhoto() {
-        if let defaultImage = UIImage(named: "NoImage") {
+        if let defaultImage = UIImage(named: "NoImageFound") {
             self.addJobsView.buttonTakePhoto.setImage(
                 defaultImage.withRenderingMode(.alwaysOriginal),
                 for: .normal
@@ -45,10 +44,7 @@ class AddJobsViewController: UIViewController {
         }
     }
     
-    
-    
     @objc func onRegisterTapped() {
-//        showActivityIndicator()
         uploadJobPhotoToStorage()
     }
     
@@ -65,7 +61,6 @@ class AddJobsViewController: UIViewController {
         return UIMenu(title: "Select source", children: menuItems)
     }
     
-    // Take Photo using Camera
     func pickUsingCamera() {
         let cameraController = UIImagePickerController()
         cameraController.sourceType = .camera
@@ -74,7 +69,6 @@ class AddJobsViewController: UIViewController {
         present(cameraController, animated: true)
     }
     
-    // Pick Photo using Gallery
     func pickPhotoFromGallery() {
         var configuration = PHPickerConfiguration()
         configuration.filter = .images

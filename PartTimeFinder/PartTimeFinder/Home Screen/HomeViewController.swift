@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     let homeView = HomeView()
     
     var jobsList = [Job]()
-    var filteredJobsList = [Job]() // List to store filtered jobs
+    var filteredJobsList = [Job]()
     var isSearchActive = false // Flag to determine if the search is active
     let database = Firestore.firestore()
     var currentUser:FirebaseAuth.User?
@@ -64,7 +64,7 @@ class HomeViewController: UIViewController {
         homeView.searchBar.delegate = self
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "person.crop.circle"), // Use a system icon
+            image: UIImage(systemName: "person.crop.circle"),
             style: .plain,
             target: self,
             action: #selector(onProfileBarButtonTapped)
@@ -94,7 +94,7 @@ extension HomeViewController: UISearchBarDelegate {
         
         if searchText.isEmpty {
             isSearchActive = false
-            filteredJobsList = jobsList // No filtering, show all jobs
+            filteredJobsList = jobsList
             print("inside searchbar 1")
             
         } else {
@@ -106,15 +106,13 @@ extension HomeViewController: UISearchBarDelegate {
                 return job.jobName.lowercased().contains(searchText.lowercased())
             }
             
-            // if filteredJob is empty call alert
             if filteredJobsList.isEmpty {
                 Utils.throwAlert(on: self, title: "No result", message: "No results found for \"\(searchText)\".")
             }
         }
-        homeView.tableViewJobs.reloadData() // Reload the table with filtered data
+        homeView.tableViewJobs.reloadData()
     }
     
-    // Optionally, handle search bar cancel button tap
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print("inside searchbar cancel")
         

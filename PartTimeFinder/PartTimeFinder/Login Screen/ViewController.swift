@@ -19,10 +19,7 @@ class ViewController: UIViewController {
         view = loginScreen
     }
     
-    // To clear fields after logout
-    // referred from stackoverflow.com/questions/28335447/how-do-you-clear-a-textfield-box-after-going-back-from-a-navigation-stack
     override func viewWillAppear(_ animated: Bool) {
-
         super.viewWillAppear(animated)
         
         handleAuth = Auth.auth().addStateDidChangeListener{ auth, user in
@@ -40,8 +37,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-       
         loginScreen.buttonLogin
             .addTarget(self, action: #selector(onButtonLoginTapped), for: .touchUpInside)
         
@@ -68,7 +63,6 @@ class ViewController: UIViewController {
     }
     
     @objc func onButtonSignupTapped() {
-        // Go to Signup page
         let signUpScreen = SignUpViewController()
         navigationController?.pushViewController(signUpScreen, animated: true)
     }

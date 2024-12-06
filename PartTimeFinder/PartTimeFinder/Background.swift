@@ -2,7 +2,7 @@
 //  Background.swift
 //  PartTimeFinder
 //
-//  Created by Snehal Bondre on 12/5/24.
+//  Created by Rahul Chandak on 12/5/24.
 //
 
 import UIKit

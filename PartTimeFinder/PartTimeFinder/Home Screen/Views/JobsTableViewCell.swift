@@ -28,10 +28,10 @@ class JobsTableViewCell: UITableViewCell {
 
     func setupWrapperCellView() {
         wrapperCellView = UIView()
-        wrapperCellView.backgroundColor = .white // Set the cell's actual background color here
-        wrapperCellView.layer.cornerRadius = 12.0  // Rounded corners
-        wrapperCellView.layer.borderWidth = 1.0    // Border width
-        wrapperCellView.layer.borderColor = UIColor.lightGray.cgColor  // Border color
+        wrapperCellView.backgroundColor = .white
+        wrapperCellView.layer.cornerRadius = 12.0
+        wrapperCellView.layer.borderWidth = 1.0
+        wrapperCellView.layer.borderColor = UIColor.lightGray.cgColor
         wrapperCellView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(wrapperCellView)
     }
@@ -40,9 +40,9 @@ class JobsTableViewCell: UITableViewCell {
         jobImageView = UIImageView()
         jobImageView.contentMode = .scaleAspectFill
         jobImageView.clipsToBounds = true
-        jobImageView.layer.cornerRadius = 30.0  // Circular image
-        jobImageView.layer.borderWidth = 2.0    // Border around the image
-        jobImageView.layer.borderColor = UIColor.lightGray.cgColor  // Light border
+        jobImageView.layer.cornerRadius = 30.0
+        jobImageView.layer.borderWidth = 2.0
+        jobImageView.layer.borderColor = UIColor.lightGray.cgColor 
         jobImageView.translatesAutoresizingMaskIntoConstraints = false
         wrapperCellView.addSubview(jobImageView)
     }
@@ -73,8 +73,8 @@ class JobsTableViewCell: UITableViewCell {
 
             jobImageView.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: 16),
             jobImageView.topAnchor.constraint(equalTo: wrapperCellView.topAnchor, constant: 20),
-            jobImageView.widthAnchor.constraint(equalToConstant: 60),  // Circular image size
-            jobImageView.heightAnchor.constraint(equalTo: jobImageView.widthAnchor), // Maintain circle shape
+            jobImageView.widthAnchor.constraint(equalToConstant: 60),
+            jobImageView.heightAnchor.constraint(equalTo: jobImageView.widthAnchor),
 
             labelJobName.topAnchor.constraint(equalTo: wrapperCellView.topAnchor, constant: 24),
             labelJobName.leadingAnchor.constraint(equalTo: jobImageView.trailingAnchor, constant: 16),
@@ -83,7 +83,6 @@ class JobsTableViewCell: UITableViewCell {
             labelJobCompany.topAnchor.constraint(equalTo: labelJobName.bottomAnchor, constant: 8),
             labelJobCompany.leadingAnchor.constraint(equalTo: labelJobName.leadingAnchor),
             labelJobCompany.trailingAnchor.constraint(equalTo: labelJobName.trailingAnchor),
-//            labelJobCompany.bottomAnchor.constraint(equalTo: wrapperCellView.bottomAnchor, constant: -16),
             
             wrapperCellView.heightAnchor.constraint(equalToConstant: 80)
         ])

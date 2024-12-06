@@ -2,7 +2,7 @@
 //  Utils.swift
 //  PartTimeFinder
 //
-//  Created by Snehal Bondre on 11/22/24.
+//  Created by Rahul Chandak on 11/22/24.
 //
 
 import UIKit
@@ -34,14 +34,12 @@ class Utils {
     
     static func isValidUSZipCode(_ zipCode: String) -> Bool {
         let zipCodePattern = "^(?!00000$|[0]{5}(-[0]{4})?$)[0-9]{5}$|^[0-9]{5}-[0-9]{4}$" // Exclude 00000 and all-zero zip codes
-        
         let zipCodePredicate = NSPredicate(format: "SELF MATCHES %@", zipCodePattern)
         return zipCodePredicate.evaluate(with: zipCode)
     }
     
 }
 
-// Extend UIViewController to Add Dismiss Keyboard Method
 extension UIViewController {
     @objc func dismissKeyboard() {
         self.view.endEditing(true)

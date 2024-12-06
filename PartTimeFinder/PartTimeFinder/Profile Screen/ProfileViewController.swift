@@ -2,7 +2,7 @@
 //  HomeViewController.swift
 //  PartTimeFinder
 //
-//  Created by Snehal Bondre on 11/22/24.
+//  Created by Rahul Chandak on 11/22/24.
 //
 
 import UIKit

@@ -49,7 +49,7 @@ extension AddJobsViewController{
                 
                 if let photoURL = url {
                     print("Image uploaded successfully. URL: \(photoURL)")
-                    self.addJob(photoURL: photoURL) // Proceed with job creation logic
+                    self.addJob(photoURL: photoURL)
                 }
             }
         }
@@ -63,7 +63,6 @@ extension AddJobsViewController{
     }
     
     func addJob(photoURL: URL) {
-        // Safely unwrap the input fields
         guard
             let jobCompany = addJobsView.textFieldJobCompany.text, !jobCompany.isEmpty,
             let jobDesc = addJobsView.textViewJobDesc.text, !jobDesc.isEmpty,
@@ -77,14 +76,12 @@ extension AddJobsViewController{
             return
         }
         
-        // zip code validation check
         if !Utils.isValidUSZipCode(jobPostingZip) {
             Utils.throwAlert(on: self, title: "Invalid ZIP Code", message: "Please enter a valid 5-digit US ZIP Code.")
             hideActivityIndicator()
             return
         }
         
-        // Create a new job object
         let newJob = Job(
             jobName: jobName,
             jobCompany: jobCompany,
@@ -97,18 +94,14 @@ extension AddJobsViewController{
             jobDislikedBy: []
         )
         
-        // Save the new job to Firestore
         saveNewJobToFireStore(newJob: newJob)
     }
     
     func saveNewJobToFireStore(newJob: Job) {
-        // Get the "jobs" collection
         let jobsCollection = database.collection("jobs")
         
-        // Show progress indicator
         showActivityIndicator()
         
-        // Add the job to Firestore
         var jobRef: DocumentReference? = nil
         do {
             jobRef = try jobsCollection.addDocument(from: newJob, completion: { [weak self] (error: Error?) in
@@ -120,10 +113,6 @@ extension AddJobsViewController{
                     guard let jobID = jobRef?.documentID else { return }
                     print("Successfully added job with ID: \(jobID)")
                     
-                    // Optionally add a subcollection (e.g., "comments")
-                    // self?.addDefaultComments(to: jobID)
-                    
-                    // Hide progress indicator and navigate back
                     self?.hideActivityIndicator()
                     self?.navigationController?.popViewController(animated: true)
                 }

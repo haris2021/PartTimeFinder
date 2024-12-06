@@ -2,7 +2,7 @@
 //  JobDescriptionViewController.swift
 //  PartTimeFinder
 //
-//  Created by Snehal Bondre on 11/19/24.
+//  Created by Rahul Chandak on 11/19/24.
 //
 
 import UIKit
@@ -32,7 +32,7 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchJobDetails() // Refresh job details, including comment count
+        fetchJobDetails()
     }
     
     override func viewDidLoad() {
@@ -80,7 +80,6 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
                         self.jobzipcode = job.jobPostingZip
                         print(job.jobImage)
                         if let imageURL = URL(string: job.jobImage) {
-                            //                            cell.jobImageView.loadRemoteImage(from: imageURL)
                             self.jobDetailsView.jobImageView.loadRemoteImage(from: imageURL)
                             
                         }
@@ -101,7 +100,6 @@ class JobDetailsViewController: UIViewController, CLLocationManagerDelegate {
                 }
             }
             
-            // Fetch the number of comments
             let commentsRef = jobRef.collection("comments")
             commentsRef.getDocuments { snapshot, error in
                 if let error = error {

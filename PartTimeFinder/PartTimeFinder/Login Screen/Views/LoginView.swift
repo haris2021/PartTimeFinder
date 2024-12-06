@@ -14,14 +14,14 @@ class LoginView: UIView {
     var textFieldPassword: UITextField!
     var buttonLogin: UIButton!
     var buttonSignup: UIButton!
-    var imageViewLogo: UIImageView! // Add the logo image view
-
+    var imageViewLogo: UIImageView!
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupBackground()
         
-        setupLogo() // Setup logo first
+        setupLogo()
         setupTitleLabel()
         setupEmailField()
         setupPasswordField()
@@ -30,28 +30,17 @@ class LoginView: UIView {
         setupConstraints()
     }
     
-//    func setupBackground() {
-//        let gradientLayer = CAGradientLayer()
-//        gradientLayer.colors = [UIColor.systemGray.cgColor, UIColor.white.cgColor]
-//        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-//        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-//        gradientLayer.frame = UIScreen.main.bounds
-//        self.layer.insertSublayer(gradientLayer, at: 0)
-//    }
-//
-    
     func setupLogo() {
-           imageViewLogo = UIImageView()
-           imageViewLogo.image = UIImage(named: "Logo") 
-           imageViewLogo.contentMode = .scaleAspectFit
+        imageViewLogo = UIImageView()
+        imageViewLogo.image = UIImage(named: "Logo")
+        imageViewLogo.contentMode = .scaleAspectFit
         
-            // Make the image view's borders rounded
-            imageViewLogo.layer.cornerRadius = 50 // Adjust this value based on the size of the image view
-            imageViewLogo.layer.masksToBounds = true
+        imageViewLogo.layer.cornerRadius = 50
+        imageViewLogo.layer.masksToBounds = true
         
-           imageViewLogo.translatesAutoresizingMaskIntoConstraints = false
-           self.addSubview(imageViewLogo)
-       }
+        imageViewLogo.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(imageViewLogo)
+    }
     
     
     func setupTitleLabel() {
@@ -70,11 +59,10 @@ class LoginView: UIView {
         textFieldEmail.borderStyle = .roundedRect
         textFieldEmail.backgroundColor = UIColor(white: 1.0, alpha: 0.8)
         
-        // Create the left icon with padding
         let iconContainerView = UIView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
         let iconImageView = UIImageView(image: UIImage(systemName: "envelope"))
         iconImageView.contentMode = .scaleAspectFit
-        iconImageView.frame = CGRect(x: 12, y: 8, width: 20, height: 20) // Padding of 8 points
+        iconImageView.frame = CGRect(x: 12, y: 8, width: 20, height: 20)
         iconContainerView.addSubview(iconImageView)
         
         textFieldEmail.leftView = iconContainerView
@@ -82,7 +70,7 @@ class LoginView: UIView {
         textFieldEmail.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldEmail)
     }
-
+    
     
     func setupPasswordField() {
         textFieldPassword = UITextField()
@@ -91,11 +79,10 @@ class LoginView: UIView {
         textFieldPassword.backgroundColor = UIColor(white: 1.0, alpha: 0.8)
         textFieldPassword.isSecureTextEntry = true
         
-        // Create the left icon with padding
         let iconContainerView = UIView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
         let iconImageView = UIImageView(image: UIImage(systemName: "lock"))
         iconImageView.contentMode = .scaleAspectFit
-        iconImageView.frame = CGRect(x: 12, y: 8, width: 20, height: 20) // Padding of 8 points
+        iconImageView.frame = CGRect(x: 12, y: 8, width: 20, height: 20)
         iconContainerView.addSubview(iconImageView)
         
         textFieldPassword.leftView = iconContainerView
@@ -129,17 +116,14 @@ class LoginView: UIView {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             
-            // Constraints for the logo
-             imageViewLogo.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
-             imageViewLogo.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-             imageViewLogo.widthAnchor.constraint(equalToConstant: 100), // Adjust the size as needed
-             imageViewLogo.heightAnchor.constraint(equalToConstant: 100),
-             
-             // Adjust the title label to be below the logo
-             labelTitle.topAnchor.constraint(equalTo: imageViewLogo.bottomAnchor, constant: 20),
-//            labelTitle.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 40),
-             labelTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-             labelTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            imageViewLogo.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
+            imageViewLogo.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            imageViewLogo.widthAnchor.constraint(equalToConstant: 100), // Adjust the size as needed
+            imageViewLogo.heightAnchor.constraint(equalToConstant: 100),
+            
+            labelTitle.topAnchor.constraint(equalTo: imageViewLogo.bottomAnchor, constant: 20),
+            labelTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            labelTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
             textFieldEmail.topAnchor.constraint(equalTo: labelTitle.bottomAnchor, constant: 40),
             textFieldEmail.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
@@ -164,6 +148,5 @@ class LoginView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-        setupBackground()
     }
 }

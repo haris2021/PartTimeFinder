@@ -9,7 +9,6 @@ import UIKit
 
 class AddJobsView: UIView, UITextViewDelegate {
     
-    // New job-related fields
     var textFieldJobCompany: UITextField!
     var textViewJobDesc: UITextView!
     var textFieldJobName: UITextField!
@@ -26,7 +25,6 @@ class AddJobsView: UIView, UITextViewDelegate {
         //        self.backgroundColor = .white
         setupBackground()
         
-        // New setup methods for job-related fields
         setuptextFieldJobCompany()
         setuptextFieldJobDesc()
         setuptextFieldJobName()
@@ -36,7 +34,6 @@ class AddJobsView: UIView, UITextViewDelegate {
         
         setuplabelPhoto()
         setupbuttonTakePhoto()
-        
         setupbuttonRegister()
         
         initConstraints()
@@ -62,7 +59,6 @@ class AddJobsView: UIView, UITextViewDelegate {
         buttonTakePhoto = UIButton(type: .system)
         buttonTakePhoto.setTitle("", for: .normal)
         buttonTakePhoto.setImage(UIImage(systemName: "camera.fill")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        //buttonTakePhoto.setImage(UIImage(systemName: "camera.fill")?.withRenderingMode(.alwaysOriginal), for: .normal)
         buttonTakePhoto.contentHorizontalAlignment = .fill
         buttonTakePhoto.contentVerticalAlignment = .fill
         buttonTakePhoto.imageView?.contentMode = .scaleAspectFit
@@ -93,24 +89,21 @@ class AddJobsView: UIView, UITextViewDelegate {
         textViewJobDesc.isEditable = true
         textViewJobDesc.isSelectable = true
         
-        // Set delegate to manage placeholder behavior
         textViewJobDesc.delegate = self
         self.addSubview(textViewJobDesc)
     }
     
-    // By default TextView does not support placeholder.
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == .lightGray {
-            textView.text = "" // Clear placeholder text
-            textView.textColor = .black // Set text color to black
+            textView.text = ""
+            textView.textColor = .black
         }
     }
     
-    // By default TextView does not support placeholder.
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Enter job description here..." // Restore placeholder text
-            textView.textColor = .lightGray // Set placeholder color
+            textView.text = "Enter job description here..."
+            textView.textColor = .lightGray
         }
     }
     
@@ -147,7 +140,7 @@ class AddJobsView: UIView, UITextViewDelegate {
         textFieldJobPostingZip.placeholder = "Zip Code"
         textFieldJobPostingZip.keyboardType = .default
         textFieldJobPostingZip.borderStyle = .roundedRect
-        textFieldJobPostingZip.keyboardType = .numberPad // Set numeric keyboard
+        textFieldJobPostingZip.keyboardType = .numberPad
         textFieldJobPostingZip.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldJobPostingZip)
         
@@ -164,7 +157,7 @@ class AddJobsView: UIView, UITextViewDelegate {
             textViewJobDesc.topAnchor.constraint(equalTo: textFieldJobCompany.bottomAnchor, constant: 16),
             textViewJobDesc.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textViewJobDesc.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
-            textViewJobDesc.heightAnchor.constraint(equalToConstant: 100), // Adjust height for multi-line input
+            textViewJobDesc.heightAnchor.constraint(equalToConstant: 100),
             
             textFieldJobName.topAnchor.constraint(equalTo: textViewJobDesc.bottomAnchor, constant: 16),
             textFieldJobName.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),

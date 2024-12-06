@@ -11,7 +11,7 @@ class SignUpView: UIView {
 
     var labelTitle: UILabel!
     var textFieldName: UITextField!
-    var buttonProfilePic: UIButton!
+//    var buttonProfilePic: UIButton!
     var textFieldPhoneNum: UITextField!
     var textFieldEmail: UITextField!
     var textFieldPassword: UITextField!
@@ -106,8 +106,13 @@ class SignUpView: UIView {
     
     func setupButtonSignup(){
         buttonSignup = UIButton(type: .system)
-        buttonSignup.titleLabel?.font = .boldSystemFont(ofSize: 16)
         buttonSignup.setTitle("Sign up", for: .normal)
+        buttonSignup.setTitleColor(.white, for: .normal)
+        buttonSignup.backgroundColor = UIColor.systemBlue
+        buttonSignup.layer.cornerRadius = 8
+        buttonSignup.layer.shadowColor = UIColor.black.cgColor
+        buttonSignup.layer.shadowOffset = CGSize(width: 0, height: 2)
+        buttonSignup.layer.shadowOpacity = 0.3
         buttonSignup.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(buttonSignup)
     }

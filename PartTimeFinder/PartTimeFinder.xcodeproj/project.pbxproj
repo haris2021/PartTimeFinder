@@ -17,8 +17,6 @@
 		2D1323352CF0C35A0017AC3B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1323342CF0C3550017AC3B /* LoginView.swift */; };
 		2D13233A2CF0C3770017AC3B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1323392CF0C3710017AC3B /* ProfileView.swift */; };
 		2D13233C2CF0C37F0017AC3B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13233B2CF0C37B0017AC3B /* ProfileViewController.swift */; };
-		2D13233E2CF0C3920017AC3B /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13233D2CF0C38F0017AC3B /* ChatView.swift */; };
-		2D1323402CF0C39B0017AC3B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13233F2CF0C3960017AC3B /* ChatViewController.swift */; };
 		2D1323432CF0C3C50017AC3B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1323422CF0C3C20017AC3B /* HomeView.swift */; };
 		2D1323452CF0C3CD0017AC3B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1323442CF0C3C90017AC3B /* HomeViewController.swift */; };
 		2D1323472CF12A490017AC3B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1323462CF12A460017AC3B /* Utils.swift */; };
@@ -65,8 +63,6 @@
 		2D1323342CF0C3550017AC3B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2D1323392CF0C3710017AC3B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2D13233B2CF0C37B0017AC3B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		2D13233D2CF0C38F0017AC3B /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		2D13233F2CF0C3960017AC3B /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		2D1323422CF0C3C20017AC3B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2D1323442CF0C3C90017AC3B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2D1323462CF12A460017AC3B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -122,10 +118,10 @@
 		1A992C842CED47F100009C19 /* AddJobScreen */ = {
 			isa = PBXGroup;
 			children = (
+				1A992C862CED484600009C19 /* AddJobsViewController.swift */,
 				2D13236B2CFE5FFC0017AC3B /* AddJobsFirebaseManager.swift */,
 				1A992C8A2CED487600009C19 /* PhotoManager.swift */,
 				1A992C882CED486300009C19 /* AddJobsProgressIndicatorManager.swift */,
-				1A992C862CED484600009C19 /* AddJobsViewController.swift */,
 				1A992C852CED480A00009C19 /* Views */,
 			);
 			path = AddJobScreen;
@@ -134,10 +130,10 @@
 		2D1323272CF0C2860017AC3B /* Job Details Screen */ = {
 			isa = PBXGroup;
 			children = (
-				2D1323862D0249580017AC3B /* DisplayJobsProgressIndicatorManager.swift */,
-				2D13232C2CF0C2E40017AC3B /* JobDetailsView.swift */,
 				2D13232E2CF0C3000017AC3B /* JobDetailsViewController.swift */,
 				2D1323632CF3FAD60017AC3B /* ActionsManager.swift */,
+				2D1323862D0249580017AC3B /* DisplayJobsProgressIndicatorManager.swift */,
+				2D1323882D03993C0017AC3B /* Views */,
 			);
 			path = "Job Details Screen";
 			sourceTree = "<group>";
@@ -145,10 +141,10 @@
 		2D1323282CF0C28F0017AC3B /* SignUp Screen */ = {
 			isa = PBXGroup;
 			children = (
+				2D1323322CF0C31D0017AC3B /* SignUpViewController.swift */,
 				2D13234A2CF198700017AC3B /* SignUpFirebaseManager.swift */,
 				2D1323552CF1A8B50017AC3B /* SignUpProgressIndicatorManager.swift */,
-				2D1323302CF0C30E0017AC3B /* SignUpView.swift */,
-				2D1323322CF0C31D0017AC3B /* SignUpViewController.swift */,
+				2D1323892D0399650017AC3B /* Views */,
 			);
 			path = "SignUp Screen";
 			sourceTree = "<group>";
@@ -156,8 +152,8 @@
 		2D1323292CF0C2960017AC3B /* Login Screen */ = {
 			isa = PBXGroup;
 			children = (
-				2D1323342CF0C3550017AC3B /* LoginView.swift */,
 				2D5DCA412CED42260037CBBB /* ViewController.swift */,
+				2D13238A2D03997A0017AC3B /* Views */,
 			);
 			path = "Login Screen";
 			sourceTree = "<group>";
@@ -165,28 +161,18 @@
 		2D13232A2CF0C2B00017AC3B /* Profile Screen */ = {
 			isa = PBXGroup;
 			children = (
-				2D1323392CF0C3710017AC3B /* ProfileView.swift */,
 				2D13233B2CF0C37B0017AC3B /* ProfileViewController.swift */,
+				2D13238D2D0399B60017AC3B /* Views */,
 			);
 			path = "Profile Screen";
-			sourceTree = "<group>";
-		};
-		2D13232B2CF0C2C20017AC3B /* Chat Screen */ = {
-			isa = PBXGroup;
-			children = (
-				2D13233D2CF0C38F0017AC3B /* ChatView.swift */,
-				2D13233F2CF0C3960017AC3B /* ChatViewController.swift */,
-			);
-			path = "Chat Screen";
 			sourceTree = "<group>";
 		};
 		2D1323412CF0C3B80017AC3B /* Home Screen */ = {
 			isa = PBXGroup;
 			children = (
-				2D1323422CF0C3C20017AC3B /* HomeView.swift */,
-				2D1323672CFE5EC40017AC3B /* JobsTableViewCell.swift */,
 				2D1323442CF0C3C90017AC3B /* HomeViewController.swift */,
 				2D1323692CFE5F180017AC3B /* JobsTableViewManager.swift */,
+				2D13238C2D0399970017AC3B /* Views */,
 			);
 			path = "Home Screen";
 			sourceTree = "<group>";
@@ -229,6 +215,47 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		2D1323882D03993C0017AC3B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2D13232C2CF0C2E40017AC3B /* JobDetailsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2D1323892D0399650017AC3B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2D1323302CF0C30E0017AC3B /* SignUpView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2D13238A2D03997A0017AC3B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2D1323342CF0C3550017AC3B /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2D13238C2D0399970017AC3B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2D1323422CF0C3C20017AC3B /* HomeView.swift */,
+				2D1323672CFE5EC40017AC3B /* JobsTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2D13238D2D0399B60017AC3B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2D1323392CF0C3710017AC3B /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2D5DCA312CED42260037CBBB = {
 			isa = PBXGroup;
 			children = (
@@ -249,18 +276,17 @@
 			isa = PBXGroup;
 			children = (
 				2D1323842D0211BF0017AC3B /* Background.swift */,
-				2D13235C2CF1ADC00017AC3B /* Data Models */,
-				2D1323782D0166220017AC3B /* CommentsScreen */,
 				2D13236F2CFE66D10017AC3B /* Configs.swift */,
-				2D1323592CF1A99F0017AC3B /* Progress Indicator */,
 				2D1323462CF12A460017AC3B /* Utils.swift */,
-				2D1323412CF0C3B80017AC3B /* Home Screen */,
-				2D13232B2CF0C2C20017AC3B /* Chat Screen */,
-				2D13232A2CF0C2B00017AC3B /* Profile Screen */,
+				2D13235C2CF1ADC00017AC3B /* Data Models */,
+				2D1323592CF1A99F0017AC3B /* Progress Indicator */,
 				2D1323292CF0C2960017AC3B /* Login Screen */,
 				2D1323282CF0C28F0017AC3B /* SignUp Screen */,
-				2D1323272CF0C2860017AC3B /* Job Details Screen */,
+				2D1323412CF0C3B80017AC3B /* Home Screen */,
 				1A992C842CED47F100009C19 /* AddJobScreen */,
+				2D13232A2CF0C2B00017AC3B /* Profile Screen */,
+				2D1323272CF0C2860017AC3B /* Job Details Screen */,
+				2D1323782D0166220017AC3B /* CommentsScreen */,
 				2D5DCA3D2CED42260037CBBB /* AppDelegate.swift */,
 				2D13236D2CFE609C0017AC3B /* ImageViewUnits.swift */,
 				2D5DCA3F2CED42260037CBBB /* SceneDelegate.swift */,
@@ -356,7 +382,6 @@
 				2D1323702CFE66D50017AC3B /* Configs.swift in Sources */,
 				2D1323332CF0C3220017AC3B /* SignUpViewController.swift in Sources */,
 				2D13233A2CF0C3770017AC3B /* ProfileView.swift in Sources */,
-				2D1323402CF0C39B0017AC3B /* ChatViewController.swift in Sources */,
 				2D13236A2CFE5F180017AC3B /* JobsTableViewManager.swift in Sources */,
 				2D1323832D016A2E0017AC3B /* Comment.swift in Sources */,
 				1A992C8B2CED487600009C19 /* PhotoManager.swift in Sources */,
@@ -373,7 +398,6 @@
 				2D13237C2D0166410017AC3B /* CommentsView.swift in Sources */,
 				2D5DCA422CED42260037CBBB /* ViewController.swift in Sources */,
 				2D13232D2CF0C2F20017AC3B /* JobDetailsView.swift in Sources */,
-				2D13233E2CF0C3920017AC3B /* ChatView.swift in Sources */,
 				2D13237E2D0166DA0017AC3B /* CommentsTableView.swift in Sources */,
 				2D13232F2CF0C3070017AC3B /* JobDetailsViewController.swift in Sources */,
 				2D1323662CF400F00017AC3B /* Job.swift in Sources */,

@@ -21,7 +21,6 @@ class CommentsTableView: UITableViewCell {
     func setupWrapperCellView() {
         wrapperCellView = UIView()
         
-        // Set background color and styling for chat bubble
         wrapperCellView.backgroundColor = UIColor.systemGray5
         wrapperCellView.layer.cornerRadius = 16.0
         wrapperCellView.layer.masksToBounds = true

@@ -2,7 +2,7 @@
 //  ActionsManager.swift
 //  PartTimeFinder
 //
-//  Created by Snehal Bondre on 11/24/24.
+//  Created by Rahul Chandak on 11/24/24.
 //
 
 import UIKit
@@ -18,7 +18,7 @@ extension JobDetailsViewController {
     func manageLikeCounter() {
         if let jID = jobID {
             let jobRef = self.database.collection("jobs")
-                .document(jID) // Specify the document
+                .document(jID)
             
             jobRef.getDocument { documentSnapshot, error in
                 if let error = error {
@@ -76,7 +76,7 @@ extension JobDetailsViewController {
     func manageDislikeCounter(){
         if let jID = jobID {
             let jobRef = self.database.collection("jobs")
-                .document(jID) // Specify the document
+                .document(jID)
             
             jobRef.getDocument { documentSnapshot, error in
                 if let error = error {
@@ -147,9 +147,7 @@ extension JobDetailsViewController {
             showDirectionsToZipCode(zipCode: zipCode)
         }
     }
-    
-    // CLLocationManager Delegate methods
-    
+        
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         guard let location = locations.first else { return }
@@ -158,7 +156,6 @@ extension JobDetailsViewController {
             currentLocation = location
             print("Current location: \(currentLocation?.coordinate.latitude ?? 0), \(currentLocation?.coordinate.longitude ?? 0)")
             
-            // Stop further updates to save battery
             locationManager.stopUpdatingLocation()
         }
     }
@@ -168,11 +165,9 @@ extension JobDetailsViewController {
     }
     
     func showDirectionsToZipCode(zipCode: String) {
-        // 1. Get the user's current location
         guard let currentLocation = self.currentLocation else { return }
         print("currentLocation" , currentLocation)
         
-        // 2. Get the coordinates for the zip code (02120 in this case)
         getCoordinates(from: zipCode) { targetLocation in
             guard let targetLocation = targetLocation else {
                 print("Failed to get target location")
@@ -181,18 +176,16 @@ extension JobDetailsViewController {
             
             print("targetLocation" , targetLocation)
             
-            // 3. Create MKMapItems for the current and target locations
             let sourcePlacemark = MKPlacemark(coordinate: currentLocation.coordinate)
             let destinationPlacemark = MKPlacemark(coordinate: targetLocation)
             
             let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
             let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
             
-            // 4. Open Apple Maps and show directions
             let directionsRequest = MKDirections.Request()
             directionsRequest.source = sourceMapItem
             directionsRequest.destination = destinationMapItem
-            directionsRequest.transportType = .automobile  // Can be changed to .walking, .transit, etc.
+            directionsRequest.transportType = .automobile
             
             let directions = MKDirections(request: directionsRequest)
             directions.calculate { response, error in

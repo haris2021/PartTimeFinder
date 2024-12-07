@@ -46,11 +46,9 @@ class HomeView: UIView, UISearchBarDelegate {
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         
         searchBar.backgroundImage = UIImage() // Removes the white background
-        
-          searchBar.searchTextField.backgroundColor = UIColor(white: 1.0, alpha: 0.5) // Light white
-          searchBar.searchTextField.layer.cornerRadius = 8
-          searchBar.searchTextField.clipsToBounds = true
-
+        searchBar.searchTextField.backgroundColor = UIColor(white: 1.0, alpha: 0.5) // Light white
+        searchBar.searchTextField.layer.cornerRadius = 8
+        searchBar.searchTextField.clipsToBounds = true
         
         searchBar.isUserInteractionEnabled = true
         self.addSubview(searchBar)
@@ -75,7 +73,7 @@ class HomeView: UIView, UISearchBarDelegate {
     func initConstraints() {
         NSLayoutConstraint.activate([
             
-            searchBar.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
+            searchBar.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0),
             searchBar.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             searchBar.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85),
             
